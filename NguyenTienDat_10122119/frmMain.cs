@@ -34,15 +34,21 @@ namespace NguyenTienDat_10122119
             lblWelcome.Text = "Welcome Đạt Nguyễn,";
             btnDashboard.Select();
         }
-        
+        public Bunifu.UI.WinForms.BunifuButton.BunifuButton BtnConnect_Control
+        {
+            get { return btnConnect; }
+        }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            
+            btnConnect.Enabled = false;
             load_form(new frmConnect());
         }
         
         private void btnSetting_Click(object sender, EventArgs e)
         {
+
             load_form(new frmSettings());
         }
 
@@ -58,6 +64,7 @@ namespace NguyenTienDat_10122119
             frm.Dock = DockStyle.Fill;
             this.pnlMain.Controls.Add(frm);
             this.pnlMain.Tag = frm;
+            //frm.Owner = this;
             frm.Show();
         }
         private void bunifuButton7_Click(object sender, EventArgs e)
@@ -77,7 +84,11 @@ namespace NguyenTienDat_10122119
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            frmDashboard settingsForm = new frmDashboard();
+            settingsForm.TopLevel = false;
+            settingsForm.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(settingsForm);
+            settingsForm.Show();
         }
 
        
@@ -141,24 +152,7 @@ namespace NguyenTienDat_10122119
             {
                 picInternet.Image = icon.ToBitmap();
             }
-        }
-        /*
-        public void LoadForm(Object Form)
-        {
-            if(this.pnlMain.Controls.Count > 0)
-            {
-                this.pnlMain.Controls.RemoveAt(0);
-            }
-            Form frm = Form as Form;
-            frm.TopLevel = false;
-            frm.Dock = DockStyle.Fill;
-            this.pnlMain.Controls.Add(frm);
-            this.pnlMain.Tag = frm;
-            frm.Show();
-        }
-        */
-
-       
+        }     
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -196,17 +190,84 @@ namespace NguyenTienDat_10122119
 
         private void btnDevice_Click(object sender, EventArgs e)
         {
+            btnConnect.Enabled = true;
+            btnDevice.BackColor=Color.DarkBlue;
             load_form(new frmDevice());
         }
 
-        private void picInternet_Click(object sender, EventArgs e)
-        {
+       
 
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            btnConnect.Enabled = true;
         }
-
-        private void lblWelcome_Click(object sender, EventArgs e)
+        public void EnableBtnSetting(bool enabled,string button)
         {
-
+            if (button == "btnSetting")
+            {
+                if (enabled)
+                {
+                    btnSetting.IdleIconLeftImage = Properties.Resources.setting_dam;
+                    btnSetting.Refresh();
+                }
+                else
+                {
+                    btnSetting.IdleIconLeftImage = Properties.Resources.setting_nhat;
+                    btnSetting.Refresh();
+                }
+            }
+            else if (button == "btnConnect")
+            {
+                if (enabled)
+                {
+                    btnConnect.IdleIconLeftImage = Properties.Resources.remote_dam;
+                    btnConnect.Refresh();
+                }
+                else
+                {
+                    btnConnect.IdleIconLeftImage = Properties.Resources.remote_nhat;
+                    btnConnect.Refresh();
+                }
+            }
+            else if (button == "btnDevice")
+            {
+                if (enabled)
+                {
+                    btnDevice.IdleIconLeftImage = Properties.Resources.device_dam;
+                    btnDevice.Refresh();
+                }
+                else
+                {
+                    btnDevice.IdleIconLeftImage = Properties.Resources.device_nhat;
+                    btnDevice.Refresh();
+                }
+            }
+            else if (button == "btnDashboard")
+            {
+                if (enabled)
+                {
+                    btnDashboard.IdleIconLeftImage = Properties.Resources.menu_dam;
+                    btnDashboard.Refresh();
+                }
+                else
+                {
+                    btnDashboard.IdleIconLeftImage = Properties.Resources.menu_nhat;
+                    btnDashboard.Refresh();
+                }
+            }
+            else if (button == "btnProfile")
+            {
+                if (enabled)
+                {
+                    btnProfile.IdleIconLeftImage = Properties.Resources.user_dam;
+                    btnProfile.Refresh();
+                }
+                else
+                {
+                    btnProfile.IdleIconLeftImage = Properties.Resources.user_nhat;
+                    btnProfile.Refresh();
+                }
+            }   
         }
     }
 }

@@ -31,6 +31,9 @@ namespace NguyenTienDat_10122119
 
         [Flags]
 
+
+
+
         public enum MouseEventFlags : uint
         {
             LEFTDOWN = 0x00000002,
@@ -106,8 +109,15 @@ namespace NguyenTienDat_10122119
 
             bunifuLabel6.Font = new Font(pfc.Families[0], bunifuLabel8.Font.Size);
             bunifuLabel6.Text = "Password";
-
+            
         }
+        ///</Xử lí Button từ form Main>
+        private frmMain referenceTofrmMain;
+        public void SetReferenceToFormA(frmMain frmMain_button)
+        {
+            referenceTofrmMain = frmMain_button;
+        }
+
         /// </Kết thúc form chính>
         /// </Các hiển thị liên quan đến form chính>
         public static string getUsername()
@@ -118,8 +128,36 @@ namespace NguyenTienDat_10122119
             
         }
 
+        /// <summary>
+        /// <Setting các nút nếu nút đậm thì true, nhạt thì false>
+        public void Active_SettingMain(bool aka)
+        {
+            frmMain mainForm = this.ParentForm as frmMain;
+            if (mainForm != null)
+            {
+                if (aka)
+                {
+                    mainForm.EnableBtnSetting(true, "btnConnect");
+                }
+                else
+                {
+                    mainForm.EnableBtnSetting(false, "btnConnect");
+                }
+            }
+        }
         private void frmConnect_Load(object sender, EventArgs e)
         {
+            btnDisconnectRemote.Hide();
+
+            frmMain mainForm = this.ParentForm as frmMain;
+            if (mainForm != null)
+            {            
+                    mainForm.EnableBtnSetting(false, "btnSetting");
+                    mainForm.EnableBtnSetting(false, "btnDashboard");
+                    mainForm.EnableBtnSetting(false, "btnDevice");
+                    mainForm.EnableBtnSetting(false, "btnProfile");
+            }
+
             string hostname = Dns.GetHostName();
             IPHostEntry iphe = Dns.GetHostEntry(hostname);
             IPAddress ipaddress = null;
@@ -180,13 +218,12 @@ namespace NguyenTienDat_10122119
             Marshal.Copy(fontdata, 0, data, fontLength);
             pfc.AddMemoryFont(data, fontLength);
         }
-        /// </Kết thúc các hiển thị liên quan đến form chính>
         public string RandomPassword()
         {
             Random r = new Random();
-            return r.Next(1010, 9999).ToString();
+            return r.Next(1010, 99999).ToString();
         }
-        /////////////////////////////////////// SANERO_SERVER/////////////////////////////////////////////////////////
+        /////////////////////////////////////// SERVER/////////////////////////////////////////////////////////
         private void ListenForConnect()
         {
             try
@@ -211,7 +248,7 @@ namespace NguyenTienDat_10122119
                 }
 
                 IPEndPoint clientInfo = (IPEndPoint)client.Client.RemoteEndPoint;
-                DialogResult result = MessageBox.Show($"A PC wanna connect to your computer.\nDo u agree to connect??\nINFO: IPAddress: {clientInfo.Address} and port: {clientInfo.Port}", "Connection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show($"Do you accept for another PC remote your PC", "Connection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.No)
                 {
@@ -234,7 +271,7 @@ namespace NguyenTienDat_10122119
 
                 txtIPRemote.Enabled = false;
                 txtPasswordRemote.Enabled = false;
-                btnConnect.Enabled = false;
+                btnConnect_Remote.Enabled = false;
 
 
                 castScreenThread = new Thread(CastScreen);
@@ -245,7 +282,7 @@ namespace NguyenTienDat_10122119
                 listenForControlThread.IsBackground = true;
                 listenForControlThread.Start();
             }
-            catch { this.Close(); }
+            catch { }//this.Close(); }
         }
 
         private void ReListenConnect()
@@ -280,7 +317,7 @@ namespace NguyenTienDat_10122119
             txtIPRemote.Enabled = true;
             txtPasswordRemote.Enabled = true;
 
-            btnConnect.Enabled = true;
+            btnConnect_Remote.Enabled = true;
             btnDisconnectRemote.Enabled = false;
             //txtStatus.Text = "";
 
@@ -423,9 +460,19 @@ namespace NguyenTienDat_10122119
             ns.Flush();
         }
 
-        private void btnConnect_Click_1(object sender, EventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
+            Active_SettingMain(true);
+        }
 
+        private void txtIPRemote_TextChanged(object sender, EventArgs e)
+        {
+            Active_SettingMain(true);
+        }
+
+        private void txtPasswordRemote_TextChanged(object sender, EventArgs e)
+        {
+            Active_SettingMain(true);
         }
 
         private void btnDisconnectRemote_Click(object sender, EventArgs e)
@@ -433,12 +480,12 @@ namespace NguyenTienDat_10122119
             connectStatus = 2;
         }
 
-
-
         ////////////////////////////////////////////////// SANERO_CLIENT//////////////////////////////////////////////////////////////
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            Active_SettingMain(true);
+
             if (connectStatus == 1)
             {
                 viewScreenForm.Close();
@@ -488,13 +535,13 @@ namespace NguyenTienDat_10122119
                     if (remoteServer != null) remoteServer.Close();
                     txtIPRemote.Enabled = true;
                     txtPasswordRemote.Enabled = true;
-                    btnConnect.Text = "Connect";
+                    btnConnect_Remote.Text = "Connect";
                     AlertDanger(message);
                     return;
                 }
 
                 connectStatus = 1;
-                btnConnect.Text = "Disconnect";
+                btnConnect_Remote.Text = "Disconnect";
                 txtIPRemote.Enabled = false;
                 txtPasswordRemote.Enabled = false;
 
@@ -513,7 +560,7 @@ namespace NguyenTienDat_10122119
                 AlertDanger("Connect to remote PC failed");
                 txtIPRemote.Enabled = true;
                 txtPasswordRemote.Enabled = true;
-                btnConnect.Text = "Connect";
+                btnConnect_Remote.Text = "Connect";
                 txtIPRemote.Focus();
             }
         }
@@ -533,15 +580,12 @@ namespace NguyenTienDat_10122119
                     if (remoteServer != null) remoteServer.Close();
                     txtIPRemote.Enabled = true;
                     txtPasswordRemote.Enabled = true;
-                    btnConnect.Text = "Connect";
+                    btnConnect_Remote.Text = "Connect";
                     txtIPRemote.Focus();
                     StopThread(ref cancelRemoteScreenThread);
                 }
                 Thread.Sleep(1000);
             }
         }
-
-
-
     }
 }

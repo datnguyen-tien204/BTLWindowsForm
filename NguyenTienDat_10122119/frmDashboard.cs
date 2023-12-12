@@ -16,5 +16,17 @@ namespace NguyenTienDat_10122119
         {
             InitializeComponent();
         }
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+            frmMain mainForm = this.ParentForm as frmMain;
+            if (mainForm != null)
+            {
+                mainForm.EnableBtnSetting(false, "btnConnect");
+                mainForm.EnableBtnSetting(false, "btnSetting");
+                mainForm.EnableBtnSetting(false, "btnDevice");
+                mainForm.EnableBtnSetting(false, "btnProfile");
+            }
+        }
     }
 }

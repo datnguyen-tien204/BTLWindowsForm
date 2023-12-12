@@ -43,13 +43,13 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuButton9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.bunifuButton8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.bunifuButton7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.lblWelcome = new Bunifu.UI.WinForms.BunifuLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.bunifuButton9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.bunifuButton8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.bunifuButton7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pnlMain1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.picInternet = new System.Windows.Forms.PictureBox();
             this.btnDashboard = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -80,55 +80,6 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AllowParentOverrides = false;
-            this.lblWelcome.AutoEllipsis = false;
-            this.lblWelcome.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblWelcome.CursorType = System.Windows.Forms.Cursors.Default;
-            this.lblWelcome.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(3, 3);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblWelcome.Size = new System.Drawing.Size(230, 25);
-            this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "Welcome Dat Nguyen,";
-            this.lblWelcome.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.lblWelcome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.lblWelcome.Click += new System.EventHandler(this.lblWelcome_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(14, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 19);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Welcome to Chinese Viewer";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(154)))), ((int)(((byte)(154)))));
-            this.label2.Location = new System.Drawing.Point(14, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Hi Dat,";
-            // 
-            // pnlMain
-            // 
-            this.pnlMain.Controls.Add(this.lblWelcome);
-            this.pnlMain.Location = new System.Drawing.Point(112, 33);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(676, 455);
-            this.pnlMain.TabIndex = 2;
             // 
             // bunifuButton9
             // 
@@ -401,6 +352,55 @@
             this.bunifuButton7.UseDefaultRadiusAndThickness = true;
             this.bunifuButton7.Click += new System.EventHandler(this.bunifuButton7_Click);
             // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AllowParentOverrides = false;
+            this.lblWelcome.AutoEllipsis = false;
+            this.lblWelcome.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblWelcome.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblWelcome.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Location = new System.Drawing.Point(3, 3);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblWelcome.Size = new System.Drawing.Size(230, 25);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "Welcome Dat Nguyen,";
+            this.lblWelcome.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblWelcome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+           
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(14, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(224, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Welcome to Chinese Viewer";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(154)))), ((int)(((byte)(154)))));
+            this.label2.Location = new System.Drawing.Point(14, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Hi Dat,";
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Controls.Add(this.lblWelcome);
+            this.pnlMain.Location = new System.Drawing.Point(112, 33);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(676, 455);
+            this.pnlMain.TabIndex = 2;
+            // 
             // pnlMain1
             // 
             this.pnlMain1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
@@ -415,23 +415,22 @@
             this.pnlMain1.Controls.Add(this.btnSetting);
             this.pnlMain1.Controls.Add(this.btnDevice);
             this.pnlMain1.Controls.Add(this.btnProfile);
-            this.pnlMain1.Location = new System.Drawing.Point(12, 22);
+            this.pnlMain1.Location = new System.Drawing.Point(12, 58);
             this.pnlMain1.Name = "pnlMain1";
             this.pnlMain1.ShowBorders = true;
-            this.pnlMain1.Size = new System.Drawing.Size(94, 453);
+            this.pnlMain1.Size = new System.Drawing.Size(94, 423);
             this.pnlMain1.TabIndex = 0;
             // 
             // picInternet
             // 
             this.picInternet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.picInternet.Location = new System.Drawing.Point(29, 65);
+            this.picInternet.Location = new System.Drawing.Point(29, 63);
             this.picInternet.Margin = new System.Windows.Forms.Padding(0);
             this.picInternet.Name = "picInternet";
-            this.picInternet.Size = new System.Drawing.Size(30, 30);
+            this.picInternet.Size = new System.Drawing.Size(41, 35);
             this.picInternet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picInternet.TabIndex = 6;
             this.picInternet.TabStop = false;
-            this.picInternet.Click += new System.EventHandler(this.picInternet_Click);
             // 
             // btnDashboard
             // 
@@ -659,7 +658,7 @@
             this.btnSetting.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnSetting.IdleIconLeftImage")));
             this.btnSetting.IdleIconRightImage = null;
             this.btnSetting.IndicateFocus = false;
-            this.btnSetting.Location = new System.Drawing.Point(20, 384);
+            this.btnSetting.Location = new System.Drawing.Point(20, 364);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnSetting.OnDisabledState.BorderRadius = 1;
@@ -880,6 +879,7 @@
             this.btnProfile.TextMarginLeft = 0;
             this.btnProfile.TextPadding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProfile.UseDefaultRadiusAndThickness = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // bunifuTextBox1
             // 
@@ -1072,7 +1072,6 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
@@ -1092,7 +1091,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnConnect;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnDevice;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnProfile;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSetting;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton9;
@@ -1103,6 +1101,7 @@
         private System.Windows.Forms.Panel pnlMain;
         private Bunifu.UI.WinForms.BunifuPanel pnlMain1;
         private Bunifu.UI.WinForms.BunifuLabel lblWelcome;
+        public Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSetting;
     }
 }
 

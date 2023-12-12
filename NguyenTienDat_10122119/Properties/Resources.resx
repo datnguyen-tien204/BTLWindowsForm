@@ -178,6 +178,15 @@
   <data name="BeautiqueDisplay_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BeautiqueDisplay-Regular.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="device_dam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\screen_5301948.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="device_nhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\desktop_9724367.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="handphone_5709752" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\handphone_5709752.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hanken_Design_Co___Neue_Einstellung_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hanken Design Co - Neue Einstellung Bold.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -229,8 +238,26 @@
   <data name="MediumInternet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\output-onlinepngtools (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="menu_dam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu_6269312.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_nhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\border_8054842.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PaperPlane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paper-plane_5116700.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="remote_dam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paper-plane_8267048.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="remote_nhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\origami_5031828.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting_dam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_8801765.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting_nhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_7039883.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="socialbook_bg_removed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\socialbook-bg-removed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -240,5 +267,11 @@
   </data>
   <data name="StrongInternet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\output-onlinepngtools (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_dam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_8105549.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_nhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_8105594.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

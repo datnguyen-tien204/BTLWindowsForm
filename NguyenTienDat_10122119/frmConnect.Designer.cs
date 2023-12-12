@@ -54,7 +54,7 @@
             this.picConnect1 = new System.Windows.Forms.PictureBox();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.btnDisconnectRemote = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.btnConnect = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnConnect_Remote = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.txtIPRemote = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.txtPasswordRemote = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -277,7 +277,7 @@
             this.pnlRight.BackColor = System.Drawing.Color.LightGray;
             this.pnlRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlRight.BackgroundImage")));
             this.pnlRight.Controls.Add(this.btnDisconnectRemote);
-            this.pnlRight.Controls.Add(this.btnConnect);
+            this.pnlRight.Controls.Add(this.btnConnect_Remote);
             this.pnlRight.Controls.Add(this.txtIPRemote);
             this.pnlRight.Controls.Add(this.bunifuButton3);
             this.pnlRight.Controls.Add(this.txtPasswordRemote);
@@ -336,7 +336,7 @@
             this.btnDisconnectRemote.IdleIconLeftImage = null;
             this.btnDisconnectRemote.IdleIconRightImage = null;
             this.btnDisconnectRemote.IndicateFocus = false;
-            this.btnDisconnectRemote.Location = new System.Drawing.Point(137, 336);
+            this.btnDisconnectRemote.Location = new System.Drawing.Point(106, 467);
             this.btnDisconnectRemote.Name = "btnDisconnectRemote";
             this.btnDisconnectRemote.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnDisconnectRemote.OnDisabledState.BorderRadius = 15;
@@ -370,7 +370,7 @@
             this.btnDisconnectRemote.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnDisconnectRemote.OnPressedState.IconLeftImage = null;
             this.btnDisconnectRemote.OnPressedState.IconRightImage = null;
-            this.btnDisconnectRemote.Size = new System.Drawing.Size(113, 31);
+            this.btnDisconnectRemote.Size = new System.Drawing.Size(32, 10);
             this.btnDisconnectRemote.TabIndex = 10;
             this.btnDisconnectRemote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnDisconnectRemote.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -379,95 +379,95 @@
             this.btnDisconnectRemote.UseDefaultRadiusAndThickness = true;
             this.btnDisconnectRemote.Click += new System.EventHandler(this.btnDisconnectRemote_Click);
             // 
-            // btnConnect
+            // btnConnect_Remote
             // 
-            this.btnConnect.AllowAnimations = true;
-            this.btnConnect.AllowMouseEffects = true;
-            this.btnConnect.AllowToggling = false;
-            this.btnConnect.AnimationSpeed = 200;
-            this.btnConnect.AutoGenerateColors = false;
-            this.btnConnect.AutoRoundBorders = false;
-            this.btnConnect.AutoSizeLeftIcon = true;
-            this.btnConnect.AutoSizeRightIcon = true;
-            this.btnConnect.BackColor = System.Drawing.Color.Transparent;
-            this.btnConnect.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnConnect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConnect.BackgroundImage")));
-            this.btnConnect.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnConnect.ButtonText = "Connect";
-            this.btnConnect.ButtonTextMarginLeft = 0;
-            this.btnConnect.ColorContrastOnClick = 45;
-            this.btnConnect.ColorContrastOnHover = 45;
-            this.btnConnect.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnConnect_Remote.AllowAnimations = true;
+            this.btnConnect_Remote.AllowMouseEffects = true;
+            this.btnConnect_Remote.AllowToggling = false;
+            this.btnConnect_Remote.AnimationSpeed = 200;
+            this.btnConnect_Remote.AutoGenerateColors = false;
+            this.btnConnect_Remote.AutoRoundBorders = false;
+            this.btnConnect_Remote.AutoSizeLeftIcon = true;
+            this.btnConnect_Remote.AutoSizeRightIcon = true;
+            this.btnConnect_Remote.BackColor = System.Drawing.Color.Transparent;
+            this.btnConnect_Remote.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnConnect_Remote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConnect_Remote.BackgroundImage")));
+            this.btnConnect_Remote.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnConnect_Remote.ButtonText = "Connect";
+            this.btnConnect_Remote.ButtonTextMarginLeft = 0;
+            this.btnConnect_Remote.ColorContrastOnClick = 45;
+            this.btnConnect_Remote.ColorContrastOnHover = 45;
+            this.btnConnect_Remote.Cursor = System.Windows.Forms.Cursors.Default;
             borderEdges3.BottomLeft = true;
             borderEdges3.BottomRight = true;
             borderEdges3.TopLeft = true;
             borderEdges3.TopRight = true;
-            this.btnConnect.CustomizableEdges = borderEdges3;
-            this.btnConnect.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnConnect.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnConnect.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnConnect.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnConnect.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btnConnect.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnect.ForeColor = System.Drawing.Color.White;
-            this.btnConnect.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConnect.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.btnConnect.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.btnConnect.IconMarginLeft = 11;
-            this.btnConnect.IconPadding = 10;
-            this.btnConnect.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConnect.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.btnConnect.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.btnConnect.IconSize = 25;
-            this.btnConnect.IdleBorderColor = System.Drawing.Color.Silver;
-            this.btnConnect.IdleBorderRadius = 15;
-            this.btnConnect.IdleBorderThickness = 1;
-            this.btnConnect.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnConnect.IdleIconLeftImage = null;
-            this.btnConnect.IdleIconRightImage = null;
-            this.btnConnect.IndicateFocus = false;
-            this.btnConnect.Location = new System.Drawing.Point(24, 336);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnConnect.OnDisabledState.BorderRadius = 15;
-            this.btnConnect.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnConnect.OnDisabledState.BorderThickness = 1;
-            this.btnConnect.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnConnect.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnConnect.OnDisabledState.IconLeftImage = null;
-            this.btnConnect.OnDisabledState.IconRightImage = null;
-            this.btnConnect.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.btnConnect.onHoverState.BorderRadius = 15;
-            this.btnConnect.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnConnect.onHoverState.BorderThickness = 1;
-            this.btnConnect.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.btnConnect.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.btnConnect.onHoverState.IconLeftImage = null;
-            this.btnConnect.onHoverState.IconRightImage = null;
-            this.btnConnect.OnIdleState.BorderColor = System.Drawing.Color.Silver;
-            this.btnConnect.OnIdleState.BorderRadius = 15;
-            this.btnConnect.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnConnect.OnIdleState.BorderThickness = 1;
-            this.btnConnect.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnConnect.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.btnConnect.OnIdleState.IconLeftImage = null;
-            this.btnConnect.OnIdleState.IconRightImage = null;
-            this.btnConnect.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.btnConnect.OnPressedState.BorderRadius = 15;
-            this.btnConnect.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnConnect.OnPressedState.BorderThickness = 1;
-            this.btnConnect.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.btnConnect.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.btnConnect.OnPressedState.IconLeftImage = null;
-            this.btnConnect.OnPressedState.IconRightImage = null;
-            this.btnConnect.Size = new System.Drawing.Size(95, 31);
-            this.btnConnect.TabIndex = 10;
-            this.btnConnect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnConnect.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnConnect.TextMarginLeft = 0;
-            this.btnConnect.TextPadding = new System.Windows.Forms.Padding(0);
-            this.btnConnect.UseDefaultRadiusAndThickness = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            this.btnConnect_Remote.CustomizableEdges = borderEdges3;
+            this.btnConnect_Remote.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnConnect_Remote.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnConnect_Remote.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnConnect_Remote.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnConnect_Remote.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.btnConnect_Remote.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnect_Remote.ForeColor = System.Drawing.Color.White;
+            this.btnConnect_Remote.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConnect_Remote.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnConnect_Remote.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.btnConnect_Remote.IconMarginLeft = 11;
+            this.btnConnect_Remote.IconPadding = 10;
+            this.btnConnect_Remote.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConnect_Remote.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnConnect_Remote.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.btnConnect_Remote.IconSize = 25;
+            this.btnConnect_Remote.IdleBorderColor = System.Drawing.Color.Silver;
+            this.btnConnect_Remote.IdleBorderRadius = 15;
+            this.btnConnect_Remote.IdleBorderThickness = 1;
+            this.btnConnect_Remote.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnConnect_Remote.IdleIconLeftImage = null;
+            this.btnConnect_Remote.IdleIconRightImage = null;
+            this.btnConnect_Remote.IndicateFocus = false;
+            this.btnConnect_Remote.Location = new System.Drawing.Point(61, 322);
+            this.btnConnect_Remote.Name = "btnConnect_Remote";
+            this.btnConnect_Remote.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnConnect_Remote.OnDisabledState.BorderRadius = 15;
+            this.btnConnect_Remote.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnConnect_Remote.OnDisabledState.BorderThickness = 1;
+            this.btnConnect_Remote.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnConnect_Remote.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnConnect_Remote.OnDisabledState.IconLeftImage = null;
+            this.btnConnect_Remote.OnDisabledState.IconRightImage = null;
+            this.btnConnect_Remote.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.btnConnect_Remote.onHoverState.BorderRadius = 15;
+            this.btnConnect_Remote.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnConnect_Remote.onHoverState.BorderThickness = 1;
+            this.btnConnect_Remote.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.btnConnect_Remote.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnConnect_Remote.onHoverState.IconLeftImage = null;
+            this.btnConnect_Remote.onHoverState.IconRightImage = null;
+            this.btnConnect_Remote.OnIdleState.BorderColor = System.Drawing.Color.Silver;
+            this.btnConnect_Remote.OnIdleState.BorderRadius = 15;
+            this.btnConnect_Remote.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnConnect_Remote.OnIdleState.BorderThickness = 1;
+            this.btnConnect_Remote.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnConnect_Remote.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.btnConnect_Remote.OnIdleState.IconLeftImage = null;
+            this.btnConnect_Remote.OnIdleState.IconRightImage = null;
+            this.btnConnect_Remote.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnConnect_Remote.OnPressedState.BorderRadius = 15;
+            this.btnConnect_Remote.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnConnect_Remote.OnPressedState.BorderThickness = 1;
+            this.btnConnect_Remote.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnConnect_Remote.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnConnect_Remote.OnPressedState.IconLeftImage = null;
+            this.btnConnect_Remote.OnPressedState.IconRightImage = null;
+            this.btnConnect_Remote.Size = new System.Drawing.Size(117, 35);
+            this.btnConnect_Remote.TabIndex = 10;
+            this.btnConnect_Remote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnConnect_Remote.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnConnect_Remote.TextMarginLeft = 0;
+            this.btnConnect_Remote.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnConnect_Remote.UseDefaultRadiusAndThickness = true;
+            this.btnConnect_Remote.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // txtIPRemote
             // 
@@ -543,6 +543,7 @@
             this.txtIPRemote.TextPlaceholder = "Enter ID";
             this.txtIPRemote.UseSystemPasswordChar = false;
             this.txtIPRemote.WordWrap = true;
+            this.txtIPRemote.TextChanged += new System.EventHandler(this.txtIPRemote_TextChanged);
             // 
             // bunifuButton3
             // 
@@ -707,6 +708,7 @@
             this.txtPasswordRemote.TextPlaceholder = "Enter password";
             this.txtPasswordRemote.UseSystemPasswordChar = false;
             this.txtPasswordRemote.WordWrap = true;
+            this.txtPasswordRemote.TextChanged += new System.EventHandler(this.txtPasswordRemote_TextChanged);
             // 
             // bunifuLabel6
             // 
@@ -858,6 +860,7 @@
             this.bunifuButton2.TextMarginLeft = 0;
             this.bunifuButton2.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton2.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton2.Click += new System.EventHandler(this.bunifuButton2_Click);
             // 
             // bunifuLabel2
             // 
@@ -1083,7 +1086,7 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton3;
         private Bunifu.UI.WinForms.BunifuTextBox txtIPRemote;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnConnect;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnConnect_Remote;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnDisconnectRemote;
     }
 }

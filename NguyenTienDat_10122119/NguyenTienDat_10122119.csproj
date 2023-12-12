@@ -55,6 +55,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>C:\Users\nguye\BunifuCrack\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToggleSwitch">
+      <HintPath>C:\Users\nguye\BunifuCrack\Bunifu.UI.WinForms.BunifuToggleSwitch.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>C:\Users\nguye\Downloads\Guna.UI2.dll</HintPath>
     </Reference>
@@ -80,11 +83,23 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBasic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBasic.Designer.cs">
+      <DependentUpon>frmBasic.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConnect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmConnect.Designer.cs">
       <DependentUpon>frmConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmController.Designer.cs">
+      <DependentUpon>frmController.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
@@ -104,17 +119,29 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRemote.cs">
+    <Compile Include="frmRecipient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRemote.Designer.cs">
-      <DependentUpon>frmRemote.cs</DependentUpon>
+    <Compile Include="frmRecipient.Designer.cs">
+      <DependentUpon>frmRecipient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSecurity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSecurity.Designer.cs">
+      <DependentUpon>frmSecurity.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUnattended.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUnattended.Designer.cs">
+      <DependentUpon>frmUnattended.cs</DependentUpon>
     </Compile>
     <Compile Include="frmViewScreen.cs">
       <SubType>Form</SubType>
@@ -124,8 +151,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBasic.resx">
+      <DependentUpon>frmBasic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConnect.resx">
       <DependentUpon>frmConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmController.resx">
+      <DependentUpon>frmController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
@@ -136,11 +169,17 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRemote.resx">
-      <DependentUpon>frmRemote.cs</DependentUpon>
+    <EmbeddedResource Include="frmRecipient.resx">
+      <DependentUpon>frmRecipient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSecurity.resx">
+      <DependentUpon>frmSecurity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUnattended.resx">
+      <DependentUpon>frmUnattended.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewScreen.resx">
       <DependentUpon>frmViewScreen.cs</DependentUpon>
@@ -254,6 +293,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\socialbook-bg-removed %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_7039883.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\border_8054842.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desktop_9724367.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\handphone_5709752.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_6269312.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\origami_5031828.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper-plane_8267048.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\screen_5301948.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_8801765.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_8105549.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_8105594.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
