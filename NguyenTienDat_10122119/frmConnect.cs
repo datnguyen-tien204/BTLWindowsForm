@@ -14,6 +14,7 @@ using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace NguyenTienDat_10122119
 {
@@ -28,12 +29,7 @@ namespace NguyenTienDat_10122119
         const uint KEYEVENTF_KEYUP = 0x0002;
         const uint KEYEVENTF_KEYDOWN = 0;
 
-
         [Flags]
-
-
-
-
         public enum MouseEventFlags : uint
         {
             LEFTDOWN = 0x00000002,
@@ -91,7 +87,10 @@ namespace NguyenTienDat_10122119
             InitializeComponent();
             Init_CustomLabel_Font();
 
-            lblMyID.Text = GetLocalIPAddress();
+            //lblMyID.Text = GetLocalIPAddress();
+            string text = GetLocalIPAddress();
+            string textWithoutDots = text.Replace('.', ' ');
+            lblMyID.Text= textWithoutDots;
             lblSecurityCode.Text = getUsername();
 
             lblDeviceID.Font = new Font(pfc.Families[0], lblDeviceID.Font.Size);
@@ -112,10 +111,25 @@ namespace NguyenTienDat_10122119
             
         }
         ///</Xử lí Button từ form Main>
-        private frmMain referenceTofrmMain;
-        public void SetReferenceToFormA(frmMain frmMain_button)
+
+        private void Active_Menu(bool isActive)
         {
-            referenceTofrmMain = frmMain_button;
+            if (isActive)
+            {
+                frmMain mainForm = this.ParentForm as frmMain;
+                if (mainForm != null)
+                {
+                    mainForm.EnableBtnSetting(true, "btnConnect");
+                }
+            }
+            else
+            {
+                frmSettings mainForm = this.ParentForm as frmSettings;
+                if (mainForm != null)
+                {
+                    mainForm.EnableBtnSetting(false, "btnConnect");
+                }
+            }
         }
 
         /// </Kết thúc form chính>
@@ -147,6 +161,8 @@ namespace NguyenTienDat_10122119
         }
         private void frmConnect_Load(object sender, EventArgs e)
         {
+            Active_Menu(true);
+
             btnDisconnectRemote.Hide();
 
             frmMain mainForm = this.ParentForm as frmMain;
@@ -171,8 +187,23 @@ namespace NguyenTienDat_10122119
                 }
             }
 
-            lblMyID.Text = ipaddress.ToString();
-            lblSecurityCode.Text = RandomPassword();
+            //lblMyID.Text = ipaddress.ToString();
+            string text = ipaddress.ToString();
+            string textWithoutDots = text.Replace('.', ' ');
+            lblMyID.Text = textWithoutDots;
+
+
+            //lblSecurityCode.Text = RandomPassword();
+            string filePath = "code.txt"; 
+            if (File.Exists(filePath) && new FileInfo(filePath).Length == 0)
+            {
+                lblSecurityCode.Text = RandomPassword();
+            }
+            else
+            {
+                string fileContent = File.ReadAllText(filePath);
+                lblSecurityCode.Text = fileContent;
+            }
             txtIPRemote.Focus();
 
             listenForConnectThread = new Thread(ListenForConnect);
@@ -195,6 +226,7 @@ namespace NguyenTienDat_10122119
 
         private void btnCopyIP_Click(object sender, EventArgs e)
         {
+            Active_Menu(true);
             try
             {
                 string myString = GetLocalIPAddress();
@@ -224,6 +256,7 @@ namespace NguyenTienDat_10122119
             return r.Next(1010, 99999).ToString();
         }
         /////////////////////////////////////// SERVER/////////////////////////////////////////////////////////
+        ///<Setting SERVER>
         private void ListenForConnect()
         {
             try
@@ -441,12 +474,12 @@ namespace NguyenTienDat_10122119
 
         private void bunifuLabel3_Click(object sender, EventArgs e)
         {
-
+            Active_Menu(true);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            Active_Menu(true);
         }
 
         private void MoveCursor(int curPosX, int curPosY)
@@ -475,15 +508,43 @@ namespace NguyenTienDat_10122119
             Active_SettingMain(true);
         }
 
+        private void txtIPRemote_Load(object sender, EventArgs e)
+        {
+            Active_Menu(true);
+        }
+
+        private void txtPasswordRemote_Load(object sender, EventArgs e)
+        {
+            Active_Menu(true);
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            string filePath = "code.txt";
+            if (File.Exists(filePath) && new FileInfo(filePath).Length == 0)
+            {
+                lblSecurityCode.Text = RandomPassword();
+            }
+            else
+            {
+                string fileContent = File.ReadAllText(filePath);
+                lblSecurityCode.Text = fileContent;
+            }
+            txtIPRemote.Focus();
+        }
+
         private void btnDisconnectRemote_Click(object sender, EventArgs e)
         {
             connectStatus = 2;
         }
+        ///<End Setting SERVER>
 
-        ////////////////////////////////////////////////// SANERO_CLIENT//////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////// CLIENT //////////////////////////////////////////////////////////////
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            Active_Menu(true);
+
             Active_SettingMain(true);
 
             if (connectStatus == 1)
@@ -503,12 +564,11 @@ namespace NguyenTienDat_10122119
             try
             {
                 IPAddress remoteIP;
-                if (!IPAddress.TryParse(txtIPRemote.Text.Trim(), out remoteIP))
+                if (!IPAddress.TryParse(txtIPRemote.Text.Replace(' ', '.').Trim(), out remoteIP))
                 {
-                    AlertDanger("Invalid IPAddress");
+                    AlertDanger("Invalid IP Address");
                     return;
                 }
-
                 if (txtIPRemote.Text.Trim() == lblMyID.Text)
                 {
                     AlertDanger("You can not connect to your computer");

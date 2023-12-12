@@ -62,6 +62,7 @@
             this.bunifuLabel5 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuButton2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -336,7 +337,7 @@
             this.btnDisconnectRemote.IdleIconLeftImage = null;
             this.btnDisconnectRemote.IdleIconRightImage = null;
             this.btnDisconnectRemote.IndicateFocus = false;
-            this.btnDisconnectRemote.Location = new System.Drawing.Point(106, 467);
+            this.btnDisconnectRemote.Location = new System.Drawing.Point(97, 470);
             this.btnDisconnectRemote.Name = "btnDisconnectRemote";
             this.btnDisconnectRemote.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnDisconnectRemote.OnDisabledState.BorderRadius = 15;
@@ -370,7 +371,7 @@
             this.btnDisconnectRemote.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnDisconnectRemote.OnPressedState.IconLeftImage = null;
             this.btnDisconnectRemote.OnPressedState.IconRightImage = null;
-            this.btnDisconnectRemote.Size = new System.Drawing.Size(32, 10);
+            this.btnDisconnectRemote.Size = new System.Drawing.Size(10, 30);
             this.btnDisconnectRemote.TabIndex = 10;
             this.btnDisconnectRemote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnDisconnectRemote.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -426,7 +427,7 @@
             this.btnConnect_Remote.IdleIconLeftImage = null;
             this.btnConnect_Remote.IdleIconRightImage = null;
             this.btnConnect_Remote.IndicateFocus = false;
-            this.btnConnect_Remote.Location = new System.Drawing.Point(61, 322);
+            this.btnConnect_Remote.Location = new System.Drawing.Point(75, 322);
             this.btnConnect_Remote.Name = "btnConnect_Remote";
             this.btnConnect_Remote.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnConnect_Remote.OnDisabledState.BorderRadius = 15;
@@ -486,7 +487,7 @@
             this.txtIPRemote.BorderThickness = 1;
             this.txtIPRemote.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtIPRemote.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIPRemote.DefaultFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIPRemote.DefaultFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIPRemote.DefaultText = "";
             this.txtIPRemote.FillColor = System.Drawing.Color.White;
             this.txtIPRemote.ForeColor = System.Drawing.Color.Black;
@@ -533,7 +534,7 @@
             this.txtIPRemote.SelectionLength = 0;
             this.txtIPRemote.SelectionStart = 0;
             this.txtIPRemote.ShortcutsEnabled = true;
-            this.txtIPRemote.Size = new System.Drawing.Size(214, 36);
+            this.txtIPRemote.Size = new System.Drawing.Size(214, 40);
             this.txtIPRemote.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtIPRemote.TabIndex = 9;
             this.txtIPRemote.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -544,6 +545,7 @@
             this.txtIPRemote.UseSystemPasswordChar = false;
             this.txtIPRemote.WordWrap = true;
             this.txtIPRemote.TextChanged += new System.EventHandler(this.txtIPRemote_TextChanged);
+            this.txtIPRemote.Load += new System.EventHandler(this.txtIPRemote_Load);
             // 
             // bunifuButton3
             // 
@@ -709,6 +711,7 @@
             this.txtPasswordRemote.UseSystemPasswordChar = false;
             this.txtPasswordRemote.WordWrap = true;
             this.txtPasswordRemote.TextChanged += new System.EventHandler(this.txtPasswordRemote_TextChanged);
+            this.txtPasswordRemote.Load += new System.EventHandler(this.txtPasswordRemote_Load);
             // 
             // bunifuLabel6
             // 
@@ -758,6 +761,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.bunifuImageButton1);
             this.panel1.Controls.Add(this.bunifuButton2);
             this.panel1.Controls.Add(this.bunifuLabel2);
             this.panel1.Controls.Add(this.bunifuButton1);
@@ -771,6 +775,42 @@
             this.panel1.Size = new System.Drawing.Size(293, 500);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.ActiveImage = null;
+            this.bunifuImageButton1.AllowAnimations = true;
+            this.bunifuImageButton1.AllowBuffering = false;
+            this.bunifuImageButton1.AllowToggling = false;
+            this.bunifuImageButton1.AllowZooming = true;
+            this.bunifuImageButton1.AllowZoomingOnFocus = false;
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.bunifuImageButton1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.ErrorImage")));
+            this.bunifuImageButton1.FadeWhenInactive = false;
+            this.bunifuImageButton1.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.ImageLocation = null;
+            this.bunifuImageButton1.ImageMargin = 0;
+            this.bunifuImageButton1.ImageSize = new System.Drawing.Size(25, 24);
+            this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(26, 25);
+            this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
+            this.bunifuImageButton1.Location = new System.Drawing.Point(247, 291);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Rotation = 0;
+            this.bunifuImageButton1.ShowActiveImage = true;
+            this.bunifuImageButton1.ShowCursorChanges = true;
+            this.bunifuImageButton1.ShowImageBorders = true;
+            this.bunifuImageButton1.ShowSizeMarkers = false;
+            this.bunifuImageButton1.Size = new System.Drawing.Size(26, 25);
+            this.bunifuImageButton1.TabIndex = 11;
+            this.bunifuImageButton1.ToolTipText = "";
+            this.bunifuImageButton1.WaitOnLoad = false;
+            this.bunifuImageButton1.Zoom = 0;
+            this.bunifuImageButton1.ZoomSpeed = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
             // bunifuButton2
             // 
@@ -965,7 +1005,6 @@
             this.bunifuButton1.TextMarginLeft = 0;
             this.bunifuButton1.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
-            this.bunifuButton1.Click += new System.EventHandler(this.btnCopyIP_Click);
             // 
             // lblSecurityCode
             // 
@@ -1088,5 +1127,6 @@
         private Bunifu.UI.WinForms.BunifuTextBox txtIPRemote;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnConnect_Remote;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnDisconnectRemote;
+        private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton1;
     }
 }

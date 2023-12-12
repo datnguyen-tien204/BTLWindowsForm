@@ -125,6 +125,7 @@
             this.tglSecurityCode.Value = false;
             this.tglSecurityCode.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.tglLogged_in_CheckedChanged);
             this.tglSecurityCode.Load += new System.EventHandler(this.tglSecurityCode_Load);
+            this.tglSecurityCode.Click += new System.EventHandler(this.tglSecurityCode_Click);
             // 
             // tglLogged_in
             // 
@@ -167,8 +168,9 @@
             toggleState6.BorderThicknessInner = 1;
             this.tglLogged_in.ToggleStateOn = toggleState6;
             this.tglLogged_in.Value = true;
-            this.tglLogged_in.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.tglLogged_in_CheckedChanged);
+            this.tglLogged_in.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.tglLogged_in_CheckedChanged_1);
             this.tglLogged_in.Load += new System.EventHandler(this.tglSecurityCode_Load);
+            this.tglLogged_in.Click += new System.EventHandler(this.tglLogged_in_Click);
             // 
             // bunifuLabel3
             // 
@@ -223,6 +225,7 @@
             this.txtSecurityCode.DefaultFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSecurityCode.DefaultText = "";
             this.txtSecurityCode.FillColor = System.Drawing.Color.White;
+            this.txtSecurityCode.ForeColor = System.Drawing.Color.Black;
             this.txtSecurityCode.HideSelection = true;
             this.txtSecurityCode.IconLeft = null;
             this.txtSecurityCode.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -253,7 +256,7 @@
             this.txtSecurityCode.OnHoverState = stateProperties3;
             stateProperties4.BorderColor = System.Drawing.Color.Silver;
             stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
+            stateProperties4.ForeColor = System.Drawing.Color.Black;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtSecurityCode.OnIdleState = stateProperties4;
             this.txtSecurityCode.Padding = new System.Windows.Forms.Padding(3);
@@ -365,6 +368,7 @@
             this.btnSave.TextMarginLeft = 0;
             this.btnSave.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnSave.UseDefaultRadiusAndThickness = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmUnattended
             // 
@@ -383,6 +387,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUnattended";
             this.Text = "frmUnattended";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUnattended_FormClosing);
             this.Load += new System.EventHandler(this.frmUnattended_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

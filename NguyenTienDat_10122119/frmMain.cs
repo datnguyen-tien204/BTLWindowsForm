@@ -41,8 +41,6 @@ namespace NguyenTienDat_10122119
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            
-            btnConnect.Enabled = false;
             load_form(new frmConnect());
         }
         
@@ -268,6 +266,11 @@ namespace NguyenTienDat_10122119
                     btnProfile.Refresh();
                 }
             }   
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

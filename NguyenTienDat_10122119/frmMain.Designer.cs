@@ -367,7 +367,6 @@
             this.lblWelcome.Text = "Welcome Dat Nguyen,";
             this.lblWelcome.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblWelcome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-           
             // 
             // label1
             // 
@@ -1072,6 +1071,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.panel1.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();

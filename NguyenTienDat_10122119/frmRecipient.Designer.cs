@@ -175,7 +175,7 @@
             this.tglAllowTemporary.Value = true;
             this.tglAllowTemporary.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.tglAllowTemporary_CheckedChanged);
             this.tglAllowTemporary.Load += new System.EventHandler(this.frmRecipient_Load);
-            this.tglAllowTemporary.Click += new System.EventHandler(this.frmRecipient_Load);
+            this.tglAllowTemporary.Click += new System.EventHandler(this.tglAllowTemporary_Click);
             // 
             // tglAllowAccept
             // 
@@ -220,7 +220,7 @@
             this.tglAllowAccept.Value = true;
             this.tglAllowAccept.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.tglAllowAccept_CheckedChanged);
             this.tglAllowAccept.Load += new System.EventHandler(this.frmRecipient_Load);
-            this.tglAllowAccept.Click += new System.EventHandler(this.frmRecipient_Load);
+            this.tglAllowAccept.Click += new System.EventHandler(this.tglAllowAccept_Click);
             this.tglAllowAccept.MouseHover += new System.EventHandler(this.frmRecipient_Load);
             // 
             // frmRecipient
@@ -239,6 +239,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRecipient";
             this.Text = "frmRecipient";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRecipient_FormClosing);
             this.Load += new System.EventHandler(this.frmRecipient_Load);
             this.MouseHover += new System.EventHandler(this.frmRecipient_Load);
             this.ResumeLayout(false);
