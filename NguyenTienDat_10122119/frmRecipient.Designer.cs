@@ -129,8 +129,10 @@
             this.cboChoose.Name = "cboChoose";
             this.cboChoose.ShadowDecoration.Parent = this.cboChoose;
             this.cboChoose.Size = new System.Drawing.Size(273, 36);
+            this.cboChoose.StartIndex = 1;
             this.cboChoose.TabIndex = 6;
             this.cboChoose.SelectedIndexChanged += new System.EventHandler(this.cboChoose_SelectedIndexChanged);
+            this.cboChoose.Click += new System.EventHandler(this.cboChoose_Click);
             // 
             // tglAllowTemporary
             // 

@@ -26,28 +26,47 @@ namespace NguyenTienDat_10122119
             {
                 writer.WriteLine(tglAllowAccept.Checked);
                 writer.WriteLine(tglAllowTemporary.Checked);
-                writer.Write(selectedIndex);
+                writer.WriteLine(selectedIndex);
             }
         }
 
         private void LoadFormState()
         {
+            if (File.Exists("recipient_cbo.txt"))
+            {
+                string[] recipientLines = File.ReadAllLines("recipient_cbo.txt");
+                if (recipientLines.Length >= 1)
+                {
+                    int selectedIndex;
+                    if (int.TryParse(recipientLines[0], out selectedIndex))
+                    {
+                        // Update line 3 of Receipent.txt with selectedIndex from recipient_cbo.txt
+                        string[] linesToUpdate = File.ReadAllLines(filePath);
+                        linesToUpdate[2] = selectedIndex.ToString();
+
+                        File.WriteAllLines(filePath, linesToUpdate);
+                    }
+                }
+            }
+
+            // Read data from Receipent.txt after updating its line 3
             if (File.Exists(filePath))
             {
-                using (StreamReader reader = new StreamReader(filePath))
-                {
-                    string logged_in = reader.ReadLine();
-                    string security_code = reader.ReadLine();
-                    string selectedIndex = reader.ReadLine();
+                string[] lines = File.ReadAllLines(filePath);
+                bool tglAllowAcceptValue;
+                bool tglAllowTemporaryValue;
+                int selectedIndexValue;
 
-                    if (!string.IsNullOrEmpty(logged_in) && !string.IsNullOrEmpty(security_code))
+                // Check if the file has at least 3 lines
+                if (lines.Length >= 3)
+                {
+                    if (bool.TryParse(lines[0], out tglAllowAcceptValue) &&
+                        bool.TryParse(lines[1], out tglAllowTemporaryValue) &&
+                        int.TryParse(lines[2], out selectedIndexValue))
                     {
-                        tglAllowAccept.Checked = bool.Parse(logged_in);
-                        tglAllowTemporary.Checked = bool.Parse(security_code);
-                    }
-                    if (!string.IsNullOrEmpty(selectedIndex))
-                    {
-                        cboChoose.SelectedIndex = int.Parse(selectedIndex);
+                        tglAllowAccept.Checked = tglAllowAcceptValue;
+                        tglAllowTemporary.Checked = tglAllowTemporaryValue;
+                        cboChoose.SelectedIndex = selectedIndexValue;
                     }
                 }
             }
@@ -87,6 +106,11 @@ namespace NguyenTienDat_10122119
         private void cboChoose_SelectedIndexChanged(object sender, EventArgs e)
         {
             Active_Menu(true);
+            int selectedIndex = cboChoose.SelectedIndex;
+            using (StreamWriter writer = new StreamWriter("recipient_cbo.txt"))
+            {
+                writer.WriteLine(selectedIndex);
+            }
         }
 
         private void frmRecipient_Load(object sender, EventArgs e)
@@ -99,7 +123,7 @@ namespace NguyenTienDat_10122119
 
                 if (!string.IsNullOrEmpty(fileContent))
                 {
-                    cboChoose.SelectedIndex = 0;
+                    
                 }
                 else
                 {
@@ -123,6 +147,11 @@ namespace NguyenTienDat_10122119
         }
 
         private void tglAllowTemporary_Click(object sender, EventArgs e)
+        {
+            SaveFormState();
+        }
+
+        private void cboChoose_Click(object sender, EventArgs e)
         {
             SaveFormState();
         }

@@ -41,9 +41,9 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.btnStartWithWindows = new Bunifu.UI.WinForms.BunifuToggleSwitch();
+            this.tglStartWithWindows = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.btnPreventDevice = new Bunifu.UI.WinForms.BunifuToggleSwitch();
+            this.tglPreventDevice = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.txtDeviceName = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnSaveDeviceName = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -66,19 +66,19 @@
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // btnStartWithWindows
+            // tglStartWithWindows
             // 
-            this.btnStartWithWindows.Animation = 5;
-            this.btnStartWithWindows.BackColor = System.Drawing.Color.Transparent;
-            this.btnStartWithWindows.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStartWithWindows.BackgroundImage")));
-            this.btnStartWithWindows.Checked = true;
-            this.btnStartWithWindows.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStartWithWindows.InnerCirclePadding = 3;
-            this.btnStartWithWindows.Location = new System.Drawing.Point(29, 77);
-            this.btnStartWithWindows.Name = "btnStartWithWindows";
-            this.btnStartWithWindows.Size = new System.Drawing.Size(42, 18);
-            this.btnStartWithWindows.TabIndex = 1;
-            this.btnStartWithWindows.ThumbMargin = 3;
+            this.tglStartWithWindows.Animation = 5;
+            this.tglStartWithWindows.BackColor = System.Drawing.Color.Transparent;
+            this.tglStartWithWindows.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tglStartWithWindows.BackgroundImage")));
+            this.tglStartWithWindows.Checked = true;
+            this.tglStartWithWindows.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tglStartWithWindows.InnerCirclePadding = 3;
+            this.tglStartWithWindows.Location = new System.Drawing.Point(29, 77);
+            this.tglStartWithWindows.Name = "tglStartWithWindows";
+            this.tglStartWithWindows.Size = new System.Drawing.Size(42, 18);
+            this.tglStartWithWindows.TabIndex = 1;
+            this.tglStartWithWindows.ThumbMargin = 3;
             toggleState1.BackColor = System.Drawing.Color.DarkGray;
             toggleState1.BackColorInner = System.Drawing.Color.White;
             toggleState1.BorderColor = System.Drawing.Color.DarkGray;
@@ -87,7 +87,7 @@
             toggleState1.BorderRadiusInner = 11;
             toggleState1.BorderThickness = 1;
             toggleState1.BorderThicknessInner = 1;
-            this.btnStartWithWindows.ToggleStateDisabled = toggleState1;
+            this.tglStartWithWindows.ToggleStateDisabled = toggleState1;
             toggleState2.BackColor = System.Drawing.Color.Empty;
             toggleState2.BackColorInner = System.Drawing.Color.Empty;
             toggleState2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
@@ -96,7 +96,7 @@
             toggleState2.BorderRadiusInner = 1;
             toggleState2.BorderThickness = 1;
             toggleState2.BorderThicknessInner = 1;
-            this.btnStartWithWindows.ToggleStateOff = toggleState2;
+            this.tglStartWithWindows.ToggleStateOff = toggleState2;
             toggleState3.BackColor = System.Drawing.Color.DodgerBlue;
             toggleState3.BackColorInner = System.Drawing.Color.White;
             toggleState3.BorderColor = System.Drawing.Color.DodgerBlue;
@@ -105,9 +105,9 @@
             toggleState3.BorderRadiusInner = 11;
             toggleState3.BorderThickness = 1;
             toggleState3.BorderThicknessInner = 1;
-            this.btnStartWithWindows.ToggleStateOn = toggleState3;
-            this.btnStartWithWindows.Value = true;
-            this.btnStartWithWindows.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.btnStartWithWindows_CheckedChanged);
+            this.tglStartWithWindows.ToggleStateOn = toggleState3;
+            this.tglStartWithWindows.Value = true;
+            this.tglStartWithWindows.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.btnStartWithWindows_CheckedChanged);
             // 
             // bunifuLabel2
             // 
@@ -125,19 +125,19 @@
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // btnPreventDevice
+            // tglPreventDevice
             // 
-            this.btnPreventDevice.Animation = 5;
-            this.btnPreventDevice.BackColor = System.Drawing.Color.Transparent;
-            this.btnPreventDevice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPreventDevice.BackgroundImage")));
-            this.btnPreventDevice.Checked = true;
-            this.btnPreventDevice.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPreventDevice.InnerCirclePadding = 3;
-            this.btnPreventDevice.Location = new System.Drawing.Point(29, 123);
-            this.btnPreventDevice.Name = "btnPreventDevice";
-            this.btnPreventDevice.Size = new System.Drawing.Size(42, 18);
-            this.btnPreventDevice.TabIndex = 3;
-            this.btnPreventDevice.ThumbMargin = 3;
+            this.tglPreventDevice.Animation = 5;
+            this.tglPreventDevice.BackColor = System.Drawing.Color.Transparent;
+            this.tglPreventDevice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tglPreventDevice.BackgroundImage")));
+            this.tglPreventDevice.Checked = true;
+            this.tglPreventDevice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tglPreventDevice.InnerCirclePadding = 3;
+            this.tglPreventDevice.Location = new System.Drawing.Point(29, 123);
+            this.tglPreventDevice.Name = "tglPreventDevice";
+            this.tglPreventDevice.Size = new System.Drawing.Size(42, 18);
+            this.tglPreventDevice.TabIndex = 3;
+            this.tglPreventDevice.ThumbMargin = 3;
             toggleState4.BackColor = System.Drawing.Color.DarkGray;
             toggleState4.BackColorInner = System.Drawing.Color.White;
             toggleState4.BorderColor = System.Drawing.Color.DarkGray;
@@ -146,7 +146,7 @@
             toggleState4.BorderRadiusInner = 11;
             toggleState4.BorderThickness = 1;
             toggleState4.BorderThicknessInner = 1;
-            this.btnPreventDevice.ToggleStateDisabled = toggleState4;
+            this.tglPreventDevice.ToggleStateDisabled = toggleState4;
             toggleState5.BackColor = System.Drawing.Color.Empty;
             toggleState5.BackColorInner = System.Drawing.Color.Empty;
             toggleState5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
@@ -155,7 +155,7 @@
             toggleState5.BorderRadiusInner = 1;
             toggleState5.BorderThickness = 1;
             toggleState5.BorderThicknessInner = 1;
-            this.btnPreventDevice.ToggleStateOff = toggleState5;
+            this.tglPreventDevice.ToggleStateOff = toggleState5;
             toggleState6.BackColor = System.Drawing.Color.DodgerBlue;
             toggleState6.BackColorInner = System.Drawing.Color.White;
             toggleState6.BorderColor = System.Drawing.Color.DodgerBlue;
@@ -164,9 +164,9 @@
             toggleState6.BorderRadiusInner = 11;
             toggleState6.BorderThickness = 1;
             toggleState6.BorderThicknessInner = 1;
-            this.btnPreventDevice.ToggleStateOn = toggleState6;
-            this.btnPreventDevice.Value = true;
-            this.btnPreventDevice.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.btnPreventDevice_CheckedChanged);
+            this.tglPreventDevice.ToggleStateOn = toggleState6;
+            this.tglPreventDevice.Value = true;
+            this.tglPreventDevice.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.btnPreventDevice_CheckedChanged);
             // 
             // bunifuLabel3
             // 
@@ -375,9 +375,9 @@
             this.Controls.Add(this.btnSaveDeviceName);
             this.Controls.Add(this.txtDeviceName);
             this.Controls.Add(this.bunifuLabel3);
-            this.Controls.Add(this.btnPreventDevice);
+            this.Controls.Add(this.tglPreventDevice);
             this.Controls.Add(this.bunifuLabel2);
-            this.Controls.Add(this.btnStartWithWindows);
+            this.Controls.Add(this.tglStartWithWindows);
             this.Controls.Add(this.bunifuLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBasic";
@@ -391,9 +391,9 @@
         #endregion
 
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
-        private Bunifu.UI.WinForms.BunifuToggleSwitch btnStartWithWindows;
+        private Bunifu.UI.WinForms.BunifuToggleSwitch tglStartWithWindows;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
-        private Bunifu.UI.WinForms.BunifuToggleSwitch btnPreventDevice;
+        private Bunifu.UI.WinForms.BunifuToggleSwitch tglPreventDevice;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel3;
         private Bunifu.UI.WinForms.BunifuTextBox txtDeviceName;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSaveDeviceName;

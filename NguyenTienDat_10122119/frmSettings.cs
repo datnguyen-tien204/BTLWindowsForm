@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,17 +22,42 @@ namespace NguyenTienDat_10122119
         {
 
         }
+        public void DeletedFile(string filePath)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    writer.Write("");
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }    
+        private void ResetAll()
+        {
+            List<string> filesToDelete = new List<string>
+            {
+                "Receipent.txt",
+                "recipient_cbo.txt",
+                "Security.txt","security_textbox.txt","UnattenedSettings.txt","Controller.txt","Controller_cbo.txt","basic.txt","basic_textbox.txt","code.txt"
+            };
+            foreach (var file in filesToDelete)
+            {
+                DeletedFile(file);
+            }
+        }
 
         private void btnResetAll_Click(object sender, EventArgs e)
         {
            if(MessageBox.Show("Are you sure you want to reset all settings?","Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.Yes)
             {
-                Properties.Settings.Default.Reset();
+                ResetAll();
                 MessageBox.Show("Reset all settings successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-
         private void btnBasic_Click(object sender, EventArgs e)
         {
             load_form(new frmBasic());

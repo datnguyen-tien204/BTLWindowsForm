@@ -105,6 +105,7 @@
             this.tglLockInterface.ToggleStateOn = toggleState3;
             this.tglLockInterface.Value = false;
             this.tglLockInterface.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.tglLockInterface_CheckedChanged);
+            this.tglLockInterface.Click += new System.EventHandler(this.tglLockInterface_Click);
             // 
             // bunifuLabel2
             // 
@@ -141,6 +142,7 @@
             this.txtMinutes.DefaultFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinutes.DefaultText = "";
             this.txtMinutes.FillColor = System.Drawing.Color.White;
+            this.txtMinutes.ForeColor = System.Drawing.Color.Black;
             this.txtMinutes.HideSelection = true;
             this.txtMinutes.IconLeft = null;
             this.txtMinutes.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -148,7 +150,7 @@
             this.txtMinutes.IconRight = null;
             this.txtMinutes.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMinutes.Lines = new string[0];
-            this.txtMinutes.Location = new System.Drawing.Point(70, 75);
+            this.txtMinutes.Location = new System.Drawing.Point(70, 70);
             this.txtMinutes.MaxLength = 32767;
             this.txtMinutes.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtMinutes.Modified = false;
@@ -171,7 +173,7 @@
             this.txtMinutes.OnHoverState = stateProperties3;
             stateProperties4.BorderColor = System.Drawing.Color.Silver;
             stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
+            stateProperties4.ForeColor = System.Drawing.Color.Black;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtMinutes.OnIdleState = stateProperties4;
             this.txtMinutes.Padding = new System.Windows.Forms.Padding(3);
@@ -184,7 +186,7 @@
             this.txtMinutes.SelectionLength = 0;
             this.txtMinutes.SelectionStart = 0;
             this.txtMinutes.ShortcutsEnabled = true;
-            this.txtMinutes.Size = new System.Drawing.Size(42, 27);
+            this.txtMinutes.Size = new System.Drawing.Size(37, 27);
             this.txtMinutes.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtMinutes.TabIndex = 3;
             this.txtMinutes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -253,6 +255,7 @@
             this.tglLockedComputer.ToggleStateOn = toggleState6;
             this.tglLockedComputer.Value = false;
             this.tglLockedComputer.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.tglLockedComputer_CheckedChanged);
+            this.tglLockedComputer.Click += new System.EventHandler(this.tglLockedComputer_Click);
             // 
             // frmSecurity
             // 

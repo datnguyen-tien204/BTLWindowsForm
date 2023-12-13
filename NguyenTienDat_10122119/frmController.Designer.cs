@@ -40,7 +40,7 @@
             this.cboImageQuality = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tglHideWallpaper = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuToggleSwitch1 = new Bunifu.UI.WinForms.BunifuToggleSwitch();
+            this.tglSaveSecurityCode = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.SuspendLayout();
             // 
@@ -98,9 +98,12 @@
             this.cboImageQuality.Name = "cboImageQuality";
             this.cboImageQuality.ShadowDecoration.Parent = this.cboImageQuality;
             this.cboImageQuality.Size = new System.Drawing.Size(198, 36);
+            this.cboImageQuality.StartIndex = 0;
             this.cboImageQuality.TabIndex = 2;
             this.cboImageQuality.SelectedIndexChanged += new System.EventHandler(this.cboImageQuality_SelectedIndexChanged);
+            this.cboImageQuality.SelectedValueChanged += new System.EventHandler(this.cboImageQuality_SelectedValueChanged);
             this.cboImageQuality.Click += new System.EventHandler(this.cboImageQuality_Click);
+            this.cboImageQuality.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cboImageQuality_MouseClick);
             // 
             // tglHideWallpaper
             // 
@@ -161,19 +164,19 @@
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // bunifuToggleSwitch1
+            // tglSaveSecurityCode
             // 
-            this.bunifuToggleSwitch1.Animation = 5;
-            this.bunifuToggleSwitch1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuToggleSwitch1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuToggleSwitch1.BackgroundImage")));
-            this.bunifuToggleSwitch1.Checked = true;
-            this.bunifuToggleSwitch1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuToggleSwitch1.InnerCirclePadding = 3;
-            this.bunifuToggleSwitch1.Location = new System.Drawing.Point(30, 224);
-            this.bunifuToggleSwitch1.Name = "bunifuToggleSwitch1";
-            this.bunifuToggleSwitch1.Size = new System.Drawing.Size(42, 18);
-            this.bunifuToggleSwitch1.TabIndex = 5;
-            this.bunifuToggleSwitch1.ThumbMargin = 3;
+            this.tglSaveSecurityCode.Animation = 5;
+            this.tglSaveSecurityCode.BackColor = System.Drawing.Color.Transparent;
+            this.tglSaveSecurityCode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tglSaveSecurityCode.BackgroundImage")));
+            this.tglSaveSecurityCode.Checked = true;
+            this.tglSaveSecurityCode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tglSaveSecurityCode.InnerCirclePadding = 3;
+            this.tglSaveSecurityCode.Location = new System.Drawing.Point(30, 224);
+            this.tglSaveSecurityCode.Name = "tglSaveSecurityCode";
+            this.tglSaveSecurityCode.Size = new System.Drawing.Size(42, 18);
+            this.tglSaveSecurityCode.TabIndex = 5;
+            this.tglSaveSecurityCode.ThumbMargin = 3;
             toggleState4.BackColor = System.Drawing.Color.DarkGray;
             toggleState4.BackColorInner = System.Drawing.Color.White;
             toggleState4.BorderColor = System.Drawing.Color.DarkGray;
@@ -182,7 +185,7 @@
             toggleState4.BorderRadiusInner = 11;
             toggleState4.BorderThickness = 1;
             toggleState4.BorderThicknessInner = 1;
-            this.bunifuToggleSwitch1.ToggleStateDisabled = toggleState4;
+            this.tglSaveSecurityCode.ToggleStateDisabled = toggleState4;
             toggleState5.BackColor = System.Drawing.Color.Empty;
             toggleState5.BackColorInner = System.Drawing.Color.Empty;
             toggleState5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
@@ -191,7 +194,7 @@
             toggleState5.BorderRadiusInner = 1;
             toggleState5.BorderThickness = 1;
             toggleState5.BorderThicknessInner = 1;
-            this.bunifuToggleSwitch1.ToggleStateOff = toggleState5;
+            this.tglSaveSecurityCode.ToggleStateOff = toggleState5;
             toggleState6.BackColor = System.Drawing.Color.DodgerBlue;
             toggleState6.BackColorInner = System.Drawing.Color.White;
             toggleState6.BorderColor = System.Drawing.Color.DodgerBlue;
@@ -200,10 +203,10 @@
             toggleState6.BorderRadiusInner = 11;
             toggleState6.BorderThickness = 1;
             toggleState6.BorderThicknessInner = 1;
-            this.bunifuToggleSwitch1.ToggleStateOn = toggleState6;
-            this.bunifuToggleSwitch1.Value = true;
-            this.bunifuToggleSwitch1.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.bunifuToggleSwitch1_CheckedChanged);
-            this.bunifuToggleSwitch1.Click += new System.EventHandler(this.bunifuToggleSwitch1_Click);
+            this.tglSaveSecurityCode.ToggleStateOn = toggleState6;
+            this.tglSaveSecurityCode.Value = true;
+            this.tglSaveSecurityCode.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.bunifuToggleSwitch1_CheckedChanged);
+            this.tglSaveSecurityCode.Click += new System.EventHandler(this.bunifuToggleSwitch1_Click);
             // 
             // bunifuLabel4
             // 
@@ -227,7 +230,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(657, 458);
             this.Controls.Add(this.bunifuLabel4);
-            this.Controls.Add(this.bunifuToggleSwitch1);
+            this.Controls.Add(this.tglSaveSecurityCode);
             this.Controls.Add(this.bunifuLabel3);
             this.Controls.Add(this.tglHideWallpaper);
             this.Controls.Add(this.cboImageQuality);
@@ -250,7 +253,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboImageQuality;
         private Bunifu.UI.WinForms.BunifuToggleSwitch tglHideWallpaper;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel3;
-        private Bunifu.UI.WinForms.BunifuToggleSwitch bunifuToggleSwitch1;
+        private Bunifu.UI.WinForms.BunifuToggleSwitch tglSaveSecurityCode;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
     }
 }

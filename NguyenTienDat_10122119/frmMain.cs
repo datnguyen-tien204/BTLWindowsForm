@@ -198,6 +198,7 @@ namespace NguyenTienDat_10122119
         private void btnProfile_Click(object sender, EventArgs e)
         {
             btnConnect.Enabled = true;
+            load_form(new frmProfile());
         }
         public void EnableBtnSetting(bool enabled,string button)
         {

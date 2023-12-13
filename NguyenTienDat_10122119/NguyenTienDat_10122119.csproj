@@ -37,6 +37,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>C:\Users\nguye\BunifuCrack\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox">
+      <HintPath>C:\Users\nguye\BunifuCrack\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
       <HintPath>C:\Users\nguye\BunifuCrack\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
     </Reference>
@@ -113,11 +116,23 @@
     <Compile Include="frmDevice.Designer.cs">
       <DependentUpon>frmDevice.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProfile.Designer.cs">
+      <DependentUpon>frmProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRecipient.cs">
       <SubType>Form</SubType>
@@ -136,6 +151,12 @@
     </Compile>
     <Compile Include="frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSignUp.Designer.cs">
+      <DependentUpon>frmSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUnattended.cs">
       <SubType>Form</SubType>
@@ -166,8 +187,14 @@
     <EmbeddedResource Include="frmDevice.resx">
       <DependentUpon>frmDevice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProfile.resx">
+      <DependentUpon>frmProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecipient.resx">
       <DependentUpon>frmRecipient.cs</DependentUpon>
@@ -177,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSignUp.resx">
+      <DependentUpon>frmSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUnattended.resx">
       <DependentUpon>frmUnattended.cs</DependentUpon>
@@ -326,6 +356,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_8105594.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-key.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-time.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-double-tap-gesture.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-exit-ios-16-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remote-desktop-ios-16-filled-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remote-desktop-ios-16-filled-701.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-email-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-locked-ios-16-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-verification-ios-16-filled-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

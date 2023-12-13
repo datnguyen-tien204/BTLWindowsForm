@@ -373,9 +373,119 @@ namespace NguyenTienDat_10122119.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_double_tap_gesture {
+            get {
+                object obj = ResourceManager.GetObject("icons8-double-tap-gesture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_email_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-email-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_exit_ios_16_70 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-exit-ios-16-70", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_horizontal_line_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_horizontal_line_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_locked_ios_16_70 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-locked-ios-16-70", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_password_key {
+            get {
+                object obj = ResourceManager.GetObject("icons8-password-key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_remote_desktop_ios_16_filled_70 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-remote-desktop-ios-16-filled-70", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_remote_desktop_ios_16_filled_701 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-remote-desktop-ios-16-filled-701", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_save {
+            get {
+                object obj = ResourceManager.GetObject("icons8-save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_time {
+            get {
+                object obj = ResourceManager.GetObject("icons8-time", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_user_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-user-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_verification_ios_16_filled_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-verification-ios-16-filled-96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

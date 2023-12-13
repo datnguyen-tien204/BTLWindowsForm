@@ -111,7 +111,7 @@
             this.btnResetAll.IdleIconLeftImage = null;
             this.btnResetAll.IdleIconRightImage = null;
             this.btnResetAll.IndicateFocus = false;
-            this.btnResetAll.Location = new System.Drawing.Point(29, 332);
+            this.btnResetAll.Location = new System.Drawing.Point(16, 332);
             this.btnResetAll.Name = "btnResetAll";
             this.btnResetAll.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.btnResetAll.OnDisabledState.BorderRadius = 1;
