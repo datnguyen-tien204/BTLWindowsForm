@@ -123,7 +123,30 @@
   <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; font-family: 'Century Gothic'; font-size: 15.75pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
   </data>
+  <data name="bunifuLabel4.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; font-family: 'Century'; font-size: 9.75pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnSignIn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADkAAAAVCAYAAAD8dkbIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABBSURBVFhH7dixDQBACMNA9l/xx6APLySmsHxVWrepJG/A
+        tq9uoxlJYSSFkRRGUhhJYSSFkRRGUhhJsR9P30ZK0h+u46HvyzzNbgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSignUp.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAATkAAAAjCAYAAADv2324AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVHhe7d07SkQxFIDhlJaWFpMbS5fgEtyEYCNYWmrn
+        AoSbDGIr1ta2lrazA8FCBF8jjC8QT0zGUVHOAiaH/8BXJfeWP8mdYtz/CUd5wfd5o4tyWIy6mDMAzK/S
+        qSTHPspW6PPiLGX6hCSrvpfLYqK/DADmlTyX0N0MkqzNkvZ3Sth2fZKx/jAAtGHasV7iLG1fMz3BETgA
+        RpQT3UO5wq5/Ba5+g4tyrW0EgHbJXTjIS/Waul286ZsAoGVy6EKUE30RAFono3qSu9AXAaB18uL0BQCw
+        gcgBMI3IATCNyAEwjcgBMI3IATCNyAEwjcgBMI3IATCNyAEwjcgBMI3IATCNyAEwjcgBMI3IATCNyAEw
+        jcgBMI3IATCNyAEwzfkot9oCALSu9O3ddb2caYsA0Lr6R13lJJd3au20DQDQtCTHLvR5uURurG4AgEb5
+        JOOQZNXVKVfWzXKie9Q2AkBryjV1UuxPA/c99ducjx9P2gMA0IpB//HaRTkPR3lhlrff8SnvlcV77UEA
+        mHf1iuqHMlQD9z1hmFdClJP6q4T2EgCYP3LVJTn9+Qb3M859AnSA4MQU8x3nAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="txtName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAATkAAAAhCAYAAACiE9yzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -641,28 +664,5 @@
         1ozyhiTZlMxsc9ddd1nWXItAfxh6c4nOQR9vQNpObPvSYbF9t6z50V0/8/8Bgo32YaxpGUMAAAAASUVO
         RK5CYII=
 </value>
-  </data>
-  <data name="btnSignUp.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAATkAAAAjCAYAAADv2324AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVHhe7d07SkQxFIDhlJaWFpMbS5fgEtyEYCNYWmrn
-        AoSbDGIr1ta2lrazA8FCBF8jjC8QT0zGUVHOAiaH/8BXJfeWP8mdYtz/CUd5wfd5o4tyWIy6mDMAzK/S
-        qSTHPspW6PPiLGX6hCSrvpfLYqK/DADmlTyX0N0MkqzNkvZ3Sth2fZKx/jAAtGHasV7iLG1fMz3BETgA
-        RpQT3UO5wq5/Ba5+g4tyrW0EgHbJXTjIS/Waul286ZsAoGVy6EKUE30RAFono3qSu9AXAaB18uL0BQCw
-        gcgBMI3IATCNyAEwjcgBMI3IATCNyAEwjcgBMI3IATCNyAEwjcgBMI3IATCNyAEwjcgBMI3IATCNyAEw
-        jcgBMI3IATCNyAEwzfkot9oCALSu9O3ddb2caYsA0Lr6R13lJJd3au20DQDQtCTHLvR5uURurG4AgEb5
-        JOOQZNXVKVfWzXKie9Q2AkBryjV1UuxPA/c99ducjx9P2gMA0IpB//HaRTkPR3lhlrff8SnvlcV77UEA
-        mHf1iuqHMlQD9z1hmFdClJP6q4T2EgCYP3LVJTn9+Qb3M859AnSA4MQU8x3nAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnSignIn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADkAAAAVCAYAAAD8dkbIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABBSURBVFhH7dixDQBACMNA9l/xx6APLySmsHxVWrepJG/A
-        tq9uoxlJYSSFkRRGUhhJYSSFkRRGUhhJsR9P30ZK0h+u46HvyzzNbgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="bunifuLabel4.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Century'; font-size: 9.75pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
   </data>
 </root>

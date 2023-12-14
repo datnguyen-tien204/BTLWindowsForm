@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace NguyenTienDat_10122119
@@ -39,6 +40,10 @@ namespace NguyenTienDat_10122119
 
             frmSignUp frm = new frmSignUp();
             frm.ShowDialog();
+        }
+        private const string filePath = "AutoLogin.txt";
+        private void frmProfile_Load(object sender, EventArgs e)
+        {
         }
     }
 }

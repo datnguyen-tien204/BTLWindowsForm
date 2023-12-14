@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace NguyenTienDat_10122119
 {
@@ -193,12 +194,30 @@ namespace NguyenTienDat_10122119
             load_form(new frmDevice());
         }
 
-       
 
+        private const string filePath = "AutoLogin.txt";
         private void btnProfile_Click(object sender, EventArgs e)
         {
             btnConnect.Enabled = true;
             load_form(new frmProfile());
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath);
+
+                if (lines.Length >= 3)
+                {
+                    load_form(new frmSuccessfully());
+
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+            }
+
         }
         public void EnableBtnSetting(bool enabled,string button)
         {

@@ -175,5 +175,10 @@ namespace NguyenTienDat_10122119
             frmLogin.Show();
             this.Close();
         }
+
+        private void frmSignUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
