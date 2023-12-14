@@ -373,6 +373,16 @@ namespace NguyenTienDat_10122119.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_category_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-category-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_double_tap_gesture {
             get {
                 object obj = ResourceManager.GetObject("icons8-double-tap-gesture", resourceCulture);
@@ -416,6 +426,16 @@ namespace NguyenTienDat_10122119.Properties {
         public static System.Drawing.Bitmap icons8_locked_ios_16_70 {
             get {
                 object obj = ResourceManager.GetObject("icons8-locked-ios-16-70", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_more_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-more-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -164,6 +164,12 @@
     <Compile Include="frmSignUp.Designer.cs">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSuccessfully.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuccessfully.Designer.cs">
+      <DependentUpon>frmSuccessfully.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUnattended.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSignUp.resx">
       <DependentUpon>frmSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSuccessfully.resx">
+      <DependentUpon>frmSuccessfully.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUnattended.resx">
       <DependentUpon>frmUnattended.cs</DependentUpon>
@@ -398,6 +407,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-user-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-more-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-category-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
