@@ -205,5 +205,10 @@ namespace NguyenTienDat_10122119
             btnUntended.PerformClick();
             
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

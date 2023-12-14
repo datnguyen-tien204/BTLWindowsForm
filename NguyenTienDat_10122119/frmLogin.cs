@@ -59,14 +59,27 @@ namespace NguyenTienDat_10122119
                     if (count > 0)
                     {
                         this.Hide();
-
+                        string Email= enteredEmail;
+                        Properties.Settings.Default.ChaoMung = Email;
+                        Properties.Settings.Default.Save();
                     }
                     else
                     {
+                        string Email = "";
+                        Properties.Settings.Default.ChaoMung = Email;
+                        Properties.Settings.Default.Save();
                         MessageBox.Show("Đăng nhập không thành công. Vui lòng kiểm tra lại Email và Password!");
                     }
                 }
             }
+            if(chkAutoLogin.Checked)
+            {
+                SaveFormState();
+            }
+            this.Close();
+        }
+        public void Checked_AutoLogin()
+        {
             if(chkAutoLogin.Checked)
             {
                 SaveFormState();
@@ -78,7 +91,6 @@ namespace NguyenTienDat_10122119
                     writer.WriteLine("");
                 }
             }
-            this.Close();
         }
         private const string filePath = "AutoLogin.txt";
         private void SaveFormState()
@@ -124,15 +136,18 @@ namespace NguyenTienDat_10122119
         {
             if (chkAutoLogin.Checked)
             {
-                SaveFormState();
+                string Email = txtEmail.Text;
+                string Password = txtPassword.Text;
+                Properties.Settings.Default.Email = Email;
+                Properties.Settings.Default.Password = Password;
+                Properties.Settings.Default.Save();
             }
             else
             {
-                using (StreamWriter writer = new StreamWriter(filePath))
-                {
-                    writer.WriteLine("");
-                }
-            }
+                Properties.Settings.Default.Email = "";
+                Properties.Settings.Default.Password = "";
+                Properties.Settings.Default.Save();
+            }    
         }
 
         private void frmLogin_Load(object sender, EventArgs e)

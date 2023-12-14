@@ -533,6 +533,11 @@ namespace NguyenTienDat_10122119
             txtIPRemote.Focus();
         }
 
+        private void pnlRight_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void btnDisconnectRemote_Click(object sender, EventArgs e)
         {
             connectStatus = 2;

@@ -503,7 +503,7 @@
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtPassword.OnIdleState = stateProperties4;
             this.txtPassword.Padding = new System.Windows.Forms.Padding(3);
-            this.txtPassword.PasswordChar = '\0';
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtPassword.PlaceholderText = "Password";
             this.txtPassword.ReadOnly = false;

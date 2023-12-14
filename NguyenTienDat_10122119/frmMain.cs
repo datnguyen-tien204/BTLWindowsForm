@@ -31,9 +31,9 @@ namespace NguyenTienDat_10122119
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            lblWelcome.Font = new Font(pfc.Families[0], lblWelcome.Font.Size);
-            lblWelcome.Text = "Welcome Đạt Nguyễn,";
-            btnDashboard.Select();
+            //lblWelcome.Font = new Font(pfc.Families[0], lblWelcome.Font.Size);
+            //lblWelcome.Text = "Welcome Đạt Nguyễn,";
+            
         }
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton BtnConnect_Control
         {
@@ -71,8 +71,15 @@ namespace NguyenTienDat_10122119
             if((MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question))==DialogResult.Yes)
             {
                    Application.Exit();
-            }    
-            
+            }
+            frmLogin mainForm = this.ParentForm as frmLogin;
+            if (mainForm != null)
+            {
+                mainForm.Checked_AutoLogin();
+            }
+
+
+
         }
 
         private void bunifuButton8_Click(object sender, EventArgs e)
@@ -290,7 +297,12 @@ namespace NguyenTienDat_10122119
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            btnDashboard.PerformClick();
+        }
 
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            load_form(new frmDashboard());
         }
     }
 }
