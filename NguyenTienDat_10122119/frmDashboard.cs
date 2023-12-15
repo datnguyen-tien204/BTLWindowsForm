@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Windows.Controls;
 
 namespace NguyenTienDat_10122119
 {
@@ -95,7 +97,71 @@ namespace NguyenTienDat_10122119
             lblChaoMung.Font = new Font(pfc.Families[0], lblChaoMung.Font.Size,FontStyle.Bold);
             
             getName();
+            string filePath = "connection_log.txt";
+            DisplayConnectionLogs(filePath);
             //lblChaoMung.Text = "Welcome Đạt Nguyễn,";
+        }
+        private string FormatTime(TimeSpan timeSpan)
+        {
+            if (timeSpan.TotalMinutes < 60)
+            {
+                return $"{timeSpan.TotalMinutes}m";
+            }
+            else
+            {
+                return $"{(int)timeSpan.TotalHours}h{(int)timeSpan.Minutes}m";
+            }
+        }
+        private void DisplayConnectionLogs(string filePath)
+        {
+            try
+            {
+                // Đọc dữ liệu từ file
+                string[] lines = File.ReadAllLines(filePath);
+
+                // Tạo dictionary để lưu trữ thời gian kết nối gần nhất của mỗi ID
+                Dictionary<string, DateTime> latestConnectionTime = new Dictionary<string, DateTime>();
+
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split(',');
+                    if (parts.Length >= 2)
+                    {
+                        string[] idAndTime = parts[0].Split(' ');
+                        if (idAndTime.Length >= 4)
+                        {
+                            string id = $"{idAndTime[0]} {idAndTime[1]} {idAndTime[2]} {idAndTime[3]}";
+                            string timeString = parts[1];
+
+                            DateTime time;
+                            if (DateTime.TryParseExact(timeString, "MM/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out time))
+                            {
+                                if (latestConnectionTime.ContainsKey(id))
+                                {
+                                    // Nếu ID đã tồn tại, cập nhật thời gian kết nối mới nhất
+                                    latestConnectionTime[id] = time > latestConnectionTime[id] ? time : latestConnectionTime[id];
+                                }
+                                else
+                                {
+                                    latestConnectionTime.Add(id, time);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Hiển thị kết quả lên giao diện
+                foreach (var kvp in latestConnectionTime)
+                {
+                    TimeSpan elapsedTime = DateTime.Now - kvp.Value;
+                    string formattedTime = FormatTime(elapsedTime);
+                    //listBox1.Items.Add($"ID: {kvp.Key}, Connected {formattedTime} ago.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
