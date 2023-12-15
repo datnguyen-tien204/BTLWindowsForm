@@ -563,6 +563,22 @@ namespace NguyenTienDat_10122119
             connectToRemoteThread.IsBackground = true;
             connectToRemoteThread.Start();
         }
+        private void LogConnectionInfo(string ipAddress, DateTime connectTime)
+        {
+            string filePath = "connection_log.txt"; 
+
+            try
+            {
+                using (StreamWriter writer = File.AppendText(filePath))
+                {
+                    writer.WriteLine($"{ipAddress},{connectTime}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error writing to log file: {ex.Message}");
+            }
+        }
 
         private void ConnectToRemote()
         {
@@ -606,6 +622,7 @@ namespace NguyenTienDat_10122119
                 }
 
                 connectStatus = 1;
+                LogConnectionInfo(txtIPRemote.Text.Trim(), DateTime.Now);
                 btnConnect_Remote.Text = "Disconnect";
                 txtIPRemote.Enabled = false;
                 txtPasswordRemote.Enabled = false;

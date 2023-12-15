@@ -297,12 +297,23 @@ namespace NguyenTienDat_10122119
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            label3.Font = new Font(pfc.Families[0], label3.Font.Size,FontStyle.Bold);
             btnDashboard.PerformClick();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             load_form(new frmDashboard());
+        }
+
+        private void picInternet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
