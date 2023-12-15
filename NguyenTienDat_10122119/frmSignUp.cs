@@ -55,6 +55,7 @@ namespace NguyenTienDat_10122119
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+
             if (txtEmail.Text == "")
             {
                 MessageBox.Show("Enter your email","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);

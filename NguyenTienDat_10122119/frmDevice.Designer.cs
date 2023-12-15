@@ -36,9 +36,11 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnMore = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btnArrange = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.txtSearchingDevice = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +67,9 @@
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 25;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.guna2ComboBox1);
+            this.bunifuPanel1.Controls.Add(this.bunifuPanel3);
+            this.bunifuPanel1.Controls.Add(this.bunifuLabel1);
+            this.bunifuPanel1.Controls.Add(this.btnMore);
             this.bunifuPanel1.Controls.Add(this.btnArrange);
             this.bunifuPanel1.Controls.Add(this.txtSearchingDevice);
             this.bunifuPanel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -75,24 +79,41 @@
             this.bunifuPanel1.Size = new System.Drawing.Size(175, 413);
             this.bunifuPanel1.TabIndex = 0;
             // 
-            // guna2ComboBox1
+            // btnMore
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.FormattingEnabled = true;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(12, 89);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(134, 36);
-            this.guna2ComboBox1.TabIndex = 0;
+            this.btnMore.ActiveImage = null;
+            this.btnMore.AllowAnimations = true;
+            this.btnMore.AllowBuffering = false;
+            this.btnMore.AllowToggling = false;
+            this.btnMore.AllowZooming = true;
+            this.btnMore.AllowZoomingOnFocus = false;
+            this.btnMore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.btnMore.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMore.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnMore.ErrorImage")));
+            this.btnMore.FadeWhenInactive = false;
+            this.btnMore.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnMore.Image = global::NguyenTienDat_10122119.Properties.Resources.icons8_forward_32;
+            this.btnMore.ImageActive = null;
+            this.btnMore.ImageLocation = null;
+            this.btnMore.ImageMargin = 0;
+            this.btnMore.ImageSize = new System.Drawing.Size(23, 20);
+            this.btnMore.ImageZoomSize = new System.Drawing.Size(24, 21);
+            this.btnMore.InitialImage = null;
+            this.btnMore.Location = new System.Drawing.Point(9, 63);
+            this.btnMore.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMore.Name = "btnMore";
+            this.btnMore.Rotation = 0;
+            this.btnMore.ShowActiveImage = true;
+            this.btnMore.ShowCursorChanges = true;
+            this.btnMore.ShowImageBorders = true;
+            this.btnMore.ShowSizeMarkers = false;
+            this.btnMore.Size = new System.Drawing.Size(24, 21);
+            this.btnMore.TabIndex = 0;
+            this.btnMore.ToolTipText = "";
+            this.btnMore.WaitOnLoad = false;
+            this.btnMore.Zoom = 0;
+            this.btnMore.ZoomSpeed = 10;
+            this.btnMore.Click += new System.EventHandler(this.btnMore_Click);
             // 
             // btnArrange
             // 
@@ -257,6 +278,37 @@
             this.txtSearchingDevice.UseSystemPasswordChar = false;
             this.txtSearchingDevice.WordWrap = true;
             // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel1.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel1.Location = new System.Drawing.Point(34, 65);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(131, 16);
+            this.bunifuLabel1.TabIndex = 0;
+            this.bunifuLabel1.Text = "Recently Connected";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuPanel3
+            // 
+            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
+            this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BorderRadius = 3;
+            this.bunifuPanel3.BorderThickness = 1;
+            this.bunifuPanel3.Location = new System.Drawing.Point(0, 87);
+            this.bunifuPanel3.Name = "bunifuPanel3";
+            this.bunifuPanel3.ShowBorders = true;
+            this.bunifuPanel3.Size = new System.Drawing.Size(172, 323);
+            this.bunifuPanel3.TabIndex = 0;
+            this.bunifuPanel3.Click += new System.EventHandler(this.bunifuPanel3_Click);
+            // 
             // frmDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +322,7 @@
             this.Text = "frmDevice";
             this.Load += new System.EventHandler(this.frmDevice_Load);
             this.bunifuPanel1.ResumeLayout(false);
+            this.bunifuPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -280,6 +333,8 @@
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
         private Bunifu.UI.WinForms.BunifuTextBox txtSearchingDevice;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnArrange;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Bunifu.UI.WinForms.BunifuImageButton btnMore;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
     }
 }

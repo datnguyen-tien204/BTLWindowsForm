@@ -423,6 +423,26 @@ namespace NguyenTienDat_10122119.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_forward_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-forward-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_forward_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-forward-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_horizontal_line_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_horizontal_line_16", resourceCulture);

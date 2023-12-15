@@ -90,7 +90,7 @@ namespace NguyenTienDat_10122119
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            frmDashboard settingsForm = new frmDashboard();
+            frmConnect settingsForm = new frmConnect();
             settingsForm.TopLevel = false;
             settingsForm.Dock = DockStyle.Fill;
             pnlMain.Controls.Add(settingsForm);
@@ -267,19 +267,6 @@ namespace NguyenTienDat_10122119
                     btnDevice.Refresh();
                 }
             }
-            else if (button == "btnDashboard")
-            {
-                if (enabled)
-                {
-                    btnDashboard.IdleIconLeftImage = Properties.Resources.menu_dam;
-                    btnDashboard.Refresh();
-                }
-                else
-                {
-                    btnDashboard.IdleIconLeftImage = Properties.Resources.menu_nhat;
-                    btnDashboard.Refresh();
-                }
-            }
             else if (button == "btnProfile")
             {
                 if (enabled)
@@ -298,13 +285,10 @@ namespace NguyenTienDat_10122119
         private void frmMain_Load(object sender, EventArgs e)
         {
             label3.Font = new Font(pfc.Families[0], label3.Font.Size,FontStyle.Bold);
-            btnDashboard.PerformClick();
+            btnConnect.PerformClick();
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            load_form(new frmDashboard());
-        }
+        
 
         private void picInternet_Click(object sender, EventArgs e)
         {
