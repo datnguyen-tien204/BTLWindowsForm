@@ -177,5 +177,32 @@ namespace NguyenTienDat_10122119
                 this.Close();
             }
         }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            frmSignUp frmSignUp = new frmSignUp();
+            frmSignUp.Show();
+            this.Close();
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+            this.Close();
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            frmMain frmMain = new frmMain();
+            frmMain.Show();
+            this.Close();
+        }
+
+        private void frmForgetPassword_Load(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Close();
+        }
     }
 }

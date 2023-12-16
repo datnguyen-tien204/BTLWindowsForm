@@ -303,6 +303,7 @@
             this.btnForgetPass.TextMarginLeft = 0;
             this.btnForgetPass.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnForgetPass.UseDefaultRadiusAndThickness = true;
+            this.btnForgetPass.Click += new System.EventHandler(this.btnForgetPass_Click);
             // 
             // chkAutoLogin
             // 

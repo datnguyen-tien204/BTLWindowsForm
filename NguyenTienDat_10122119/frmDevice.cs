@@ -64,5 +64,10 @@ namespace NguyenTienDat_10122119
         {
 
         }
+
+        private void bunifuPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

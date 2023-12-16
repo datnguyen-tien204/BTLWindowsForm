@@ -16,7 +16,7 @@ namespace NguyenTienDat_10122119
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmForgetPassword());
+            Application.Run(new frmMain());
         }
     }
 }

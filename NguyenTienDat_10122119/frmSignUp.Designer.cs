@@ -784,7 +784,7 @@
             this.Controls.Add(this.bunifuPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSignUp";
-            this.Text = "frmSignUp";
+            this.Text = "q";
             this.Load += new System.EventHandler(this.frmSignUp_Load);
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();

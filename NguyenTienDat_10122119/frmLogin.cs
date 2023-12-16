@@ -154,5 +154,12 @@ namespace NguyenTienDat_10122119
         {
             LoadFormState();
         }
+
+        private void btnForgetPass_Click(object sender, EventArgs e)
+        {
+            frmForgetPassword frm = new frmForgetPassword();
+            frm.ShowDialog();
+            this.Close();
+        }
     }
 }

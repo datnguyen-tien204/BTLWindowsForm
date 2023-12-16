@@ -203,7 +203,14 @@ namespace NguyenTienDat_10122119
         private void frmSettings_Load(object sender, EventArgs e)
         {
             btnUntended.PerformClick();
-            
+            frmMain mainForm = this.ParentForm as frmMain;
+            if (mainForm != null)
+            {
+                mainForm.EnableBtnSetting(false, "btnConnect");
+                mainForm.EnableBtnSetting(false, "btnProfile");
+                mainForm.EnableBtnSetting(false, "btnDevice");
+            }
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
