@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,51 +40,47 @@ namespace NguyenTienDat_10122119
                 }
             }
         }
-        private const string filePath = "basic.txt";
+        private const string filePath = "AllFormsState.json";
+        private FormState currentState = new FormState();
+        /// <Save data moi khi thay doi>
         private void SaveFormState()
         {
-            string text = txtDeviceName.Text;
-            using (StreamWriter writer = new StreamWriter(filePath))
+            FormState currentState = new FormState
             {
-                writer.WriteLine(tglStartWithWindows.Checked);
-                writer.WriteLine(tglPreventDevice.Checked);
-                writer.WriteLine(text);
-            }
+                LockInterface = tglStartWithWindows.Checked,
+                LockedComputer = tglPreventDevice.Checked,
+                MinutesText = txtDeviceName.Text.ToString()
+            };
+
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            allFormsState[GetType().Name] = currentState;
+
+            string json = JsonConvert.SerializeObject(allFormsState, Formatting.Indented);
+            File.WriteAllText(filePath, json);
         }
 
         private void LoadFormState()
         {
-            if (File.Exists("basic_textbox.txt"))
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            string formName = GetType().Name;
+
+            if (allFormsState.ContainsKey(formName))
             {
-                string[] recipientLines = File.ReadAllLines("basic_textbox.txt");
-                if (recipientLines.Length >= 1)
-                {
-                    string selectedIndexStr = recipientLines[0];
-                    string[] linesToUpdate = File.ReadAllLines(filePath);
-                    linesToUpdate[2] = selectedIndexStr;
+                FormState currentState = allFormsState[formName];
 
-                    File.WriteAllLines(filePath, linesToUpdate);
-                }
+                tglStartWithWindows.Checked = currentState.LockInterface;
+                tglPreventDevice.Checked = currentState.LockedComputer;
+                txtDeviceName.Text = currentState.MinutesText;
             }
-
+        }
+        private Dictionary<string, FormState> LoadAllFormsState()
+        {
             if (File.Exists(filePath))
             {
-                string[] lines = File.ReadAllLines(filePath);
-                bool tglAllowAcceptValue;
-                bool tglAllowTemporaryValue;
-                string selectedIndexValue;
-                if (lines.Length >= 3)
-                {
-                    if (bool.TryParse(lines[0], out tglAllowAcceptValue) &&
-                        bool.TryParse(lines[1], out tglAllowTemporaryValue))
-                    {
-                        tglStartWithWindows.Checked = tglAllowAcceptValue;
-                        tglPreventDevice.Checked = tglAllowTemporaryValue;
-
-                        txtDeviceName.Text = lines[2]; 
-                    }
-                }
+                string json = File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<Dictionary<string, FormState>>(json);
             }
+            return new Dictionary<string, FormState>();
         }
         /// </Kết thúc phần cấu hình>
         private void frmBasic_Load(object sender, EventArgs e)

@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json;
+using Microsoft.Win32;
 
 namespace NguyenTienDat_10122119
 {
@@ -31,8 +33,6 @@ namespace NguyenTienDat_10122119
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            //lblWelcome.Font = new Font(pfc.Families[0], lblWelcome.Font.Size);
-            //lblWelcome.Text = "Welcome Đạt Nguyễn,";
             
         }
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton BtnConnect_Control
@@ -286,9 +286,27 @@ namespace NguyenTienDat_10122119
         {
             label3.Font = new Font(pfc.Families[0], label3.Font.Size,FontStyle.Bold);
             btnConnect.PerformClick();
+
+            string jsonFilePath = "AllFormsState.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+
+            bool lockInterfaceOfFrmBasic = jsonData.frmBasic.LockInterface;
+
+            if (lockInterfaceOfFrmBasic == true)
+            {
+                RegistryKey reg= Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                reg.SetValue("Dat's Viewer", Application.ExecutablePath.ToString());
+            }
+            else
+            {
+                RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                reg.DeleteValue("Dat's Viewer");
+            }
+
         }
 
-        
+
 
         private void picInternet_Click(object sender, EventArgs e)
         {
@@ -296,6 +314,11 @@ namespace NguyenTienDat_10122119
         }
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

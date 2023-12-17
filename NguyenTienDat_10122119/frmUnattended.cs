@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,32 +19,48 @@ namespace NguyenTienDat_10122119
             InitializeComponent();
 
         }
-        private const string filePath = "UnattenedSettings.txt";
+        private const string filePath = "AllFormsState.json";
+        private FormState currentState = new FormState();
+        /// <Save data moi khi thay doi>
         private void SaveFormState()
         {
-            using (StreamWriter writer = new StreamWriter(filePath))
+            FormState currentState = new FormState
             {
-                writer.WriteLine(tglLogged_in.Checked);
-                writer.WriteLine(tglSecurityCode.Checked);
-            }
+                LockInterface = tglLogged_in.Checked,
+                LockedComputer = tglSecurityCode.Checked,
+                MinutesText = txtSecurityCode.Text.ToString()
+            };
+
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            allFormsState[GetType().Name] = currentState;
+
+            string json = JsonConvert.SerializeObject(allFormsState, Formatting.Indented);
+            File.WriteAllText(filePath, json);
         }
 
         private void LoadFormState()
         {
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            string formName = GetType().Name;
+
+            if (allFormsState.ContainsKey(formName))
+            {
+                FormState currentState = allFormsState[formName];
+
+                tglLogged_in.Checked = currentState.LockInterface;
+                tglSecurityCode.Checked = currentState.LockedComputer;
+                txtSecurityCode.Text = currentState.MinutesText;
+                
+            }
+        }
+        private Dictionary<string, FormState> LoadAllFormsState()
+        {
             if (File.Exists(filePath))
             {
-                using (StreamReader reader = new StreamReader(filePath))
-                {
-                    string logged_in = reader.ReadLine();
-                    string security_code = reader.ReadLine();
-
-                    if (!string.IsNullOrEmpty(logged_in) && !string.IsNullOrEmpty(security_code))
-                    {
-                        tglLogged_in.Checked = bool.Parse(logged_in);
-                        tglSecurityCode.Checked = bool.Parse(security_code);
-                    }
-                }
+                string json = File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<Dictionary<string, FormState>>(json);
             }
+            return new Dictionary<string, FormState>();
         }
 
         private void tglLogged_in_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)

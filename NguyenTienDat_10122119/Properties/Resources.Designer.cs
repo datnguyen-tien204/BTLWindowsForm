@@ -423,6 +423,26 @@ namespace NguyenTienDat_10122119.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_eye_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-eye-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_eye_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-eye-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_forward_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-forward-32", resourceCulture);
@@ -446,6 +466,16 @@ namespace NguyenTienDat_10122119.Properties {
         public static System.Drawing.Bitmap icons8_horizontal_line_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_horizontal_line_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_information_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-information-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,6 +583,16 @@ namespace NguyenTienDat_10122119.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_up_and_down_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-up-and-down-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_user_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-24", resourceCulture);
@@ -636,6 +676,16 @@ namespace NguyenTienDat_10122119.Properties {
         public static System.Drawing.Bitmap icons8_wi_fi_weak_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_wi_fi_weak_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_windows_10_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_windows_10_30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

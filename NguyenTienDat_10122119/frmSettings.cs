@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,19 +36,25 @@ namespace NguyenTienDat_10122119
             {
                 
             }
-        }    
+        }
+        private const string filePathJson = "AllFormsState.json";
         private void ResetAll()
         {
-            List<string> filesToDelete = new List<string>
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            string result = userName.Split('\\')[0];
+
+            Dictionary<string, FormState> defaultFormStates = new Dictionary<string, FormState>
             {
-                "Receipent.txt",
-                "recipient_cbo.txt",
-                "Security.txt","security_textbox.txt","UnattenedSettings.txt","Controller.txt","Controller_cbo.txt","basic.txt","basic_textbox.txt","code.txt"
+                ["frmSecurity"] = new FormState { LockInterface = false, LockedComputer = false, MinutesText = "" },
+                ["frmRecipient"] = new FormState { LockInterface = true, LockedComputer = true, MinutesText = "1" },
+                ["frmController"] = new FormState { LockInterface = false, LockedComputer = true, MinutesText = "0" },
+                ["frmUnattended"] = new FormState { LockInterface = true, LockedComputer = false, MinutesText = "" },
+                ["frmBasic"] = new FormState { LockInterface = true, LockedComputer = true, MinutesText = result }
             };
-            foreach (var file in filesToDelete)
-            {
-                DeletedFile(file);
-            }
+
+            string json = JsonConvert.SerializeObject(defaultFormStates, Formatting.Indented);
+
+            File.WriteAllText(filePathJson, json);
         }
 
         private void btnResetAll_Click(object sender, EventArgs e)
@@ -214,6 +221,11 @@ namespace NguyenTienDat_10122119
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmSettings_Leave(object sender, EventArgs e)
         {
 
         }

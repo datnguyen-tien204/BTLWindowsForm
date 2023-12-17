@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,65 +10,61 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace NguyenTienDat_10122119
 {
+
     public partial class frmSecurity : Form
     {
+        private const string filePath = "AllFormsState.json";
+        private FormState currentState = new FormState();
         public frmSecurity()
         {
             InitializeComponent();
+            LoadFormState();
         }
-        private const string filePath = "Security.txt";
         private void SaveFormState()
         {
-            string text = txtMinutes.Text;
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                writer.WriteLine(tglLockInterface.Checked);
-                writer.WriteLine(tglLockedComputer.Checked);
-                writer.WriteLine(text);
-            }
+            currentState.LockInterface = tglLockInterface.Checked;
+            currentState.LockedComputer = tglLockedComputer.Checked;
+            currentState.MinutesText = txtMinutes.Text;
+
+            SaveAllFormsState();
         }
 
         private void LoadFormState()
         {
-            if (File.Exists("security_textbox.txt"))
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+
+            string formName = this.Name; 
+            if (allFormsState.ContainsKey(formName))
             {
-                string[] recipientLines = File.ReadAllLines("security_textbox.txt");
-                if (recipientLines.Length >= 1)
-                {
-                    int selectedIndex;
-                    if (int.TryParse(recipientLines[0], out selectedIndex))
-                    {
-                        // Update line 3 of Receipent.txt with selectedIndex from recipient_cbo.txt
-                        string[] linesToUpdate = File.ReadAllLines(filePath);
-                        linesToUpdate[2] = selectedIndex.ToString();
+                FormState currentState = allFormsState[formName];
 
-                        File.WriteAllLines(filePath, linesToUpdate);
-                    }
-                }
+                tglLockInterface.Checked = currentState.LockInterface;
+                tglLockedComputer.Checked = currentState.LockedComputer;
+                txtMinutes.Text = currentState.MinutesText;
             }
+        }
 
-            // Read data from Receipent.txt after updating its line 3
+        private Dictionary<string, FormState> LoadAllFormsState()
+        {
             if (File.Exists(filePath))
             {
-                string[] lines = File.ReadAllLines(filePath);
-                bool tglAllowAcceptValue;
-                bool tglAllowTemporaryValue;
-                int selectedIndexValue;
-
-                if (lines.Length >= 3)
-                {
-                    if (bool.TryParse(lines[0], out tglAllowAcceptValue) &&
-                        bool.TryParse(lines[1], out tglAllowTemporaryValue) &&
-                        int.TryParse(lines[2], out selectedIndexValue))
-                    {
-                        tglLockInterface.Checked = tglAllowAcceptValue;
-                        tglLockedComputer.Checked = tglAllowTemporaryValue;
-                        txtMinutes.Text = selectedIndexValue.ToString();
-                    }
-                }
+                string json = File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<Dictionary<string, FormState>>(json);
             }
+            return new Dictionary<string, FormState>();
+        }
+
+        private void SaveAllFormsState()
+        {
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            allFormsState[this.Name] = currentState;
+            Console.WriteLine(allFormsState);
+
+            string json = JsonConvert.SerializeObject(allFormsState, Formatting.Indented);
+            File.WriteAllText(filePath, json);
         }
         private void Active_Menu(bool isActive)
         {
@@ -101,7 +98,6 @@ namespace NguyenTienDat_10122119
             {
                 txtMinutes.Enabled = false;
             }
-            
         }
 
         private void tglLockInterface_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
@@ -109,26 +105,32 @@ namespace NguyenTienDat_10122119
             Active_Menu(true);
             if (tglLockInterface.Checked)
             {
-                txtMinutes.Enabled=true;
+                txtMinutes.Enabled = true;
             }
             else
             {
-                txtMinutes.Enabled=false;
+                txtMinutes.Enabled = false;
             }
+            SaveFormState();
         }
 
         private void tglLockedComputer_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
         {
             Active_Menu(true);
+            currentState.LockedComputer = tglLockedComputer.Checked;
+            SaveFormState();
         }
 
         private void txtMinutes_TextChanged(object sender, EventArgs e)
         {
             Active_Menu(true);
+            /*
             using (StreamWriter writer = new StreamWriter("security_textbox.txt"))
             {
                 writer.WriteLine(txtMinutes.Text);
             }
+            */
+            SaveFormState();
         }
 
         private void tglLockInterface_Click(object sender, EventArgs e)
@@ -140,5 +142,11 @@ namespace NguyenTienDat_10122119
         {
             SaveFormState();
         }
+    }
+    public class FormState
+    {
+        public bool LockInterface { get; set; }
+        public bool LockedComputer { get; set; }
+        public string MinutesText { get; set; }
     }
 }

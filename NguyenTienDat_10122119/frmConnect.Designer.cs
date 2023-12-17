@@ -338,7 +338,7 @@
             this.btnDisconnectRemote.IdleIconLeftImage = null;
             this.btnDisconnectRemote.IdleIconRightImage = null;
             this.btnDisconnectRemote.IndicateFocus = false;
-            this.btnDisconnectRemote.Location = new System.Drawing.Point(97, 470);
+            this.btnDisconnectRemote.Location = new System.Drawing.Point(97, 458);
             this.btnDisconnectRemote.Name = "btnDisconnectRemote";
             this.btnDisconnectRemote.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnDisconnectRemote.OnDisabledState.BorderRadius = 15;

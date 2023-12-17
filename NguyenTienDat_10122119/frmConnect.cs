@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace NguyenTienDat_10122119
 {
@@ -159,6 +160,34 @@ namespace NguyenTienDat_10122119
                 }
             }
         }
+        private void SaveCodeData()
+        {
+            string jsonFilePath = "AllFormsState.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+
+            bool minutesTextOfRecipient = jsonData.frmController.LockedComputer;
+
+            if (minutesTextOfRecipient == true)
+            {
+                // Lấy ngày hiện tại
+                string currentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                // Tạo đối tượng CodeHistoryData
+                CodeHistoryData codeHistory = new CodeHistoryData
+                {
+                    Code = lblSecurityCode.Text,
+                    DateSaved = currentDate
+                };
+
+                // Chuyển đối tượng CodeHistoryData thành chuỗi JSON
+                string codeHistoryJson = JsonConvert.SerializeObject(codeHistory);
+
+                // Lưu chuỗi JSON vào tệp code_history.json
+                string codeHistoryFilePath = "code_history.json";
+                File.AppendAllText(codeHistoryFilePath, codeHistoryJson + Environment.NewLine);
+            }
+        }
         private void frmConnect_Load(object sender, EventArgs e)
         {
             Active_Menu(true);
@@ -186,8 +215,9 @@ namespace NguyenTienDat_10122119
                     break;
                 }
             }
+              
 
-            //lblMyID.Text = ipaddress.ToString();
+
             string text = ipaddress.ToString();
             string textWithoutDots = text.Replace('.', ' ');
             lblMyID.Text = textWithoutDots;
@@ -204,8 +234,9 @@ namespace NguyenTienDat_10122119
                 string fileContent = File.ReadAllText(filePath);
                 lblSecurityCode.Text = fileContent;
             }
-            txtIPRemote.Focus();
 
+            txtIPRemote.Focus();
+            SaveCodeData();
             listenForConnectThread = new Thread(ListenForConnect);
             listenForConnectThread.IsBackground = true;
             listenForConnectThread.Start();
@@ -531,6 +562,7 @@ namespace NguyenTienDat_10122119
                 lblSecurityCode.Text = fileContent;
             }
             txtIPRemote.Focus();
+            SaveCodeData();
         }
 
         private void pnlRight_Paint(object sender, PaintEventArgs e)
@@ -670,4 +702,10 @@ namespace NguyenTienDat_10122119
             }
         }
     }
+    public class CodeHistoryData
+    {
+        public string Code { get; set; }
+        public string DateSaved { get; set; }
+    }
+
 }

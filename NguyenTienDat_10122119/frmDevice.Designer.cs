@@ -58,7 +58,6 @@
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(412, 413);
             this.bunifuPanel2.TabIndex = 0;
-            this.bunifuPanel2.Click += new System.EventHandler(this.bunifuPanel2_Click);
             // 
             // bunifuPanel1
             // 
@@ -82,18 +81,17 @@
             // 
             // bunifuPanel3
             // 
-            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
             this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel3.BorderRadius = 3;
+            this.bunifuPanel3.BorderRadius = 0;
             this.bunifuPanel3.BorderThickness = 1;
             this.bunifuPanel3.Location = new System.Drawing.Point(0, 87);
             this.bunifuPanel3.Name = "bunifuPanel3";
             this.bunifuPanel3.ShowBorders = true;
             this.bunifuPanel3.Size = new System.Drawing.Size(172, 323);
             this.bunifuPanel3.TabIndex = 0;
-            this.bunifuPanel3.Click += new System.EventHandler(this.bunifuPanel3_Click);
             // 
             // bunifuLabel1
             // 
@@ -101,6 +99,7 @@
             this.bunifuLabel1.AutoEllipsis = false;
             this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Enabled = false;
             this.bunifuLabel1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuLabel1.ForeColor = System.Drawing.Color.Black;
             this.bunifuLabel1.Location = new System.Drawing.Point(34, 65);
@@ -236,6 +235,7 @@
             this.btnArrange.TextMarginLeft = 0;
             this.btnArrange.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnArrange.UseDefaultRadiusAndThickness = true;
+            this.btnArrange.Click += new System.EventHandler(this.btnArrange_Click);
             // 
             // txtSearchingDevice
             // 
@@ -257,6 +257,7 @@
             this.txtSearchingDevice.DefaultFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchingDevice.DefaultText = "";
             this.txtSearchingDevice.FillColor = System.Drawing.Color.White;
+            this.txtSearchingDevice.ForeColor = System.Drawing.Color.Black;
             this.txtSearchingDevice.HideSelection = true;
             this.txtSearchingDevice.IconLeft = null;
             this.txtSearchingDevice.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -287,7 +288,7 @@
             this.txtSearchingDevice.OnHoverState = stateProperties3;
             stateProperties4.BorderColor = System.Drawing.Color.Silver;
             stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
+            stateProperties4.ForeColor = System.Drawing.Color.Black;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtSearchingDevice.OnIdleState = stateProperties4;
             this.txtSearchingDevice.Padding = new System.Windows.Forms.Padding(3);
@@ -310,6 +311,8 @@
             this.txtSearchingDevice.TextPlaceholder = "Searching Device...";
             this.txtSearchingDevice.UseSystemPasswordChar = false;
             this.txtSearchingDevice.WordWrap = true;
+            this.txtSearchingDevice.TextChanged += new System.EventHandler(this.txtSearchingDevice_TextChanged);
+            this.txtSearchingDevice.Click += new System.EventHandler(this.txtSearchingDevice_Click);
             // 
             // frmDevice
             // 

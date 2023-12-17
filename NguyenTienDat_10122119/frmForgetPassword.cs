@@ -20,6 +20,9 @@ namespace NguyenTienDat_10122119
         public frmForgetPassword()
         {
             InitializeComponent();
+            this.bunifuPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseDown);
+            this.bunifuPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseMove);
+            this.bunifuPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseUp);
         }
         public bool IsEmailValid(string emailaddress)
         {
@@ -194,8 +197,6 @@ namespace NguyenTienDat_10122119
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            frmMain frmMain = new frmMain();
-            frmMain.Show();
             this.Close();
         }
 
@@ -203,6 +204,34 @@ namespace NguyenTienDat_10122119
         {
             frmLogin frmLogin = new frmLogin();
             frmLogin.Close();
+        }
+        private bool isDragging = false;
+        private Point lastCursor;
+        private Point lastForm;
+        private void bunifuPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            isDragging = true;
+            lastCursor = Cursor.Position;
+            lastForm = this.Location;
+        }
+
+        private void bunifuPanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                int deltaX = Cursor.Position.X - lastCursor.X;
+                int deltaY = Cursor.Position.Y - lastCursor.Y;
+                this.Location = new Point(lastForm.X + deltaX, lastForm.Y + deltaY);
+            }
+        }
+
+        private void bunifuPanel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
+        private void bunifuPanel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

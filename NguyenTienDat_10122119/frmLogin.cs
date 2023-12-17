@@ -17,6 +17,9 @@ namespace NguyenTienDat_10122119
         public frmLogin()
         {
             InitializeComponent();
+            this.bunifuPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseDown);
+            this.bunifuPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseMove);
+            this.bunifuPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseUp);
         }
         
 
@@ -160,6 +163,30 @@ namespace NguyenTienDat_10122119
             frmForgetPassword frm = new frmForgetPassword();
             frm.ShowDialog();
             this.Close();
+        }
+        private bool isDragging = false;
+        private Point lastCursor;
+        private Point lastForm;
+        private void bunifuPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            isDragging = true;
+            lastCursor = Cursor.Position;
+            lastForm = this.Location;
+        }
+
+        private void bunifuPanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                int deltaX = Cursor.Position.X - lastCursor.X;
+                int deltaY = Cursor.Position.Y - lastCursor.Y;
+                this.Location = new Point(lastForm.X + deltaX, lastForm.Y + deltaY);
+            }
+        }
+
+        private void bunifuPanel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
         }
     }
 }

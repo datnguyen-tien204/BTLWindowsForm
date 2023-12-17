@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,64 +14,68 @@ namespace NguyenTienDat_10122119
 {
     public partial class frmRecipient : Form
     {
+
         public frmRecipient()
         {
             InitializeComponent();
         }
+        private const string filePath = "AllFormsState.json";
+        private FormState currentState = new FormState();
         /// <Save data moi khi thay doi>
-        private const string filePath = "Receipent.txt";
         private void SaveFormState()
         {
-            int selectedIndex = cboChoose.SelectedIndex;
-            using (StreamWriter writer = new StreamWriter(filePath))
+            // Tạo một đối tượng FormState để lưu trạng thái của form Recipient
+            FormState currentState = new FormState
             {
-                writer.WriteLine(tglAllowAccept.Checked);
-                writer.WriteLine(tglAllowTemporary.Checked);
-                writer.WriteLine(selectedIndex);
-            }
+                LockInterface = tglAllowAccept.Checked,
+                LockedComputer = tglAllowTemporary.Checked,
+                MinutesText = cboChoose.SelectedIndex.ToString()
+            };
+
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            allFormsState[GetType().Name] = currentState; 
+
+            string json = JsonConvert.SerializeObject(allFormsState, Formatting.Indented);
+            File.WriteAllText(filePath, json); 
         }
 
         private void LoadFormState()
         {
-            if (File.Exists("recipient_cbo.txt"))
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            string formName = GetType().Name; 
+            if(formName == "")
             {
-                string[] recipientLines = File.ReadAllLines("recipient_cbo.txt");
-                if (recipientLines.Length >= 1)
-                {
-                    int selectedIndex;
-                    if (int.TryParse(recipientLines[0], out selectedIndex))
-                    {
-                        // Update line 3 of Receipent.txt with selectedIndex from recipient_cbo.txt
-                        string[] linesToUpdate = File.ReadAllLines(filePath);
-                        linesToUpdate[2] = selectedIndex.ToString();
+                currentState = new FormState();
+            }
+            if (allFormsState.ContainsKey(formName))
+            {
+                FormState currentState = allFormsState[formName];
 
-                        File.WriteAllLines(filePath, linesToUpdate);
-                    }
+                tglAllowAccept.Checked = currentState.LockInterface;
+                tglAllowTemporary.Checked = currentState.LockedComputer;
+                int selectedIndex;
+                if (int.TryParse(currentState.MinutesText, out selectedIndex))
+                {
+                    cboChoose.SelectedIndex = selectedIndex;
                 }
             }
-
-            // Read data from Receipent.txt after updating its line 3
-            if (File.Exists(filePath))
+            else
             {
-                string[] lines = File.ReadAllLines(filePath);
-                bool tglAllowAcceptValue;
-                bool tglAllowTemporaryValue;
-                int selectedIndexValue;
-
-                // Check if the file has at least 3 lines
-                if (lines.Length >= 3)
-                {
-                    if (bool.TryParse(lines[0], out tglAllowAcceptValue) &&
-                        bool.TryParse(lines[1], out tglAllowTemporaryValue) &&
-                        int.TryParse(lines[2], out selectedIndexValue))
-                    {
-                        tglAllowAccept.Checked = tglAllowAcceptValue;
-                        tglAllowTemporary.Checked = tglAllowTemporaryValue;
-                        cboChoose.SelectedIndex = selectedIndexValue;
-                    }
-                }
+                // Nếu allFormsState là null, tạo mới một Dictionary để tránh NullReferenceException
+                allFormsState = new Dictionary<string, FormState>();
+                currentState = new FormState();
             }
         }
+        private Dictionary<string, FormState> LoadAllFormsState()
+        {
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<Dictionary<string, FormState>>(json);
+            }
+            return new Dictionary<string, FormState>();
+        }
+
         /// </summary>
         /// <param name="isActive"></param>
         private void Active_Menu(bool isActive)
@@ -156,4 +161,5 @@ namespace NguyenTienDat_10122119
             SaveFormState();
         }
     }
+   
 }

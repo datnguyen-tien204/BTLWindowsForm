@@ -643,6 +643,7 @@
             this.Name = "frmSettings";
             this.Text = "frmSettings";
             this.Load += new System.EventHandler(this.frmSettings_Load);
+            this.Leave += new System.EventHandler(this.frmSettings_Leave);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

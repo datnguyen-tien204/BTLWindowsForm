@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,56 +18,51 @@ namespace NguyenTienDat_10122119
         {
             InitializeComponent();
         }
-        private const string filePath = "Controller.txt";
+        private const string filePath = "AllFormsState.json";
+        private FormState currentState = new FormState();
+        /// <Save data moi khi thay doi>
         private void SaveFormState()
         {
-            int selectedIndex = cboImageQuality.SelectedIndex;
-            using (StreamWriter writer = new StreamWriter(filePath))
+            FormState currentState = new FormState
             {
-                writer.WriteLine(tglHideWallpaper.Checked);
-                writer.WriteLine(tglHideWallpaper.Checked);
-                writer.Write(selectedIndex);
-            }
+                LockInterface = tglHideWallpaper.Checked,
+                LockedComputer = tglSaveSecurityCode.Checked,
+                MinutesText = cboImageQuality.SelectedIndex.ToString()
+            };
+
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            allFormsState[GetType().Name] = currentState;
+
+            string json = JsonConvert.SerializeObject(allFormsState, Formatting.Indented);
+            File.WriteAllText(filePath, json);
         }
 
         private void LoadFormState()
         {
-            if (File.Exists("Controller_cbo.txt"))
-            {
-                string[] recipientLines = File.ReadAllLines("Controller_cbo.txt");
-                if (recipientLines.Length >= 1)
-                {
-                    int selectedIndex;
-                    if (int.TryParse(recipientLines[0], out selectedIndex))
-                    {
-                        string[] linesToUpdate = File.ReadAllLines(filePath);
-                        linesToUpdate[2] = selectedIndex.ToString();
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            string formName = GetType().Name;
 
-                        File.WriteAllLines(filePath, linesToUpdate);
-                    }
+            if (allFormsState.ContainsKey(formName))
+            {
+                FormState currentState = allFormsState[formName];
+
+                tglHideWallpaper.Checked = currentState.LockInterface;
+                tglSaveSecurityCode.Checked = currentState.LockedComputer;
+                int selectedIndex;
+                if (int.TryParse(currentState.MinutesText, out selectedIndex))
+                {
+                    cboImageQuality.SelectedIndex = selectedIndex;
                 }
             }
-
+        }
+        private Dictionary<string, FormState> LoadAllFormsState()
+        {
             if (File.Exists(filePath))
             {
-                string[] lines = File.ReadAllLines(filePath);
-                bool tglAllowAcceptValue;
-                bool tglAllowTemporaryValue;
-                int selectedIndexValue;
-
-                // Check if the file has at least 3 lines
-                if (lines.Length >= 3)
-                {
-                    if (bool.TryParse(lines[0], out tglAllowAcceptValue) &&
-                        bool.TryParse(lines[1], out tglAllowTemporaryValue) &&
-                        int.TryParse(lines[2], out selectedIndexValue))
-                    {
-                        tglHideWallpaper.Checked = tglAllowAcceptValue;
-                        tglSaveSecurityCode.Checked = tglAllowTemporaryValue;
-                        cboImageQuality.SelectedIndex = selectedIndexValue;
-                    }
-                }
+                string json = File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<Dictionary<string, FormState>>(json);
             }
+            return new Dictionary<string, FormState>();
         }
 
         private void frmController_Load(object sender, EventArgs e)

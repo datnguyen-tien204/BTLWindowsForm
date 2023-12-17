@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,28 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace NguyenTienDat_10122119
 {
     public partial class frmViewScreen : Form
     {
+        private void CheckAndChangeBackground()
+        {
+            
+            string jsonContent = File.ReadAllText("AllFormsState.json");
+            JObject jsonObject = JObject.Parse(jsonContent);
+            bool lockInterfaceValue = (bool)jsonObject["frmController"]["LockInterface"];
+            if (lockInterfaceValue)
+            {
+                this.BackColor = Color.Black;
+            }
+            else
+            {
+                this.BackColor = Color.White;
+            }
+        }
         NetworkStream ns;
         int pbWidth, pbHeight;
         Thread showScreen;

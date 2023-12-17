@@ -124,6 +124,9 @@
   <data name="icons8-category-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-category-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_windows_10_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-windows-10-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hanken_Design_Co___Neue_Einstellung_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hanken Design Co - Neue Einstellung Regular.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -160,11 +163,17 @@
   <data name="InternetLoss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\output-onlinepngtools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-forward-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-forward-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user_nhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_8105594.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BeautiqueDisplayCondensed_BlackItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BeautiqueDisplayCondensed-BlackItalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icons8-forward-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-forward-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_wi_fi_weak_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-wi-fi-weak-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,8 +199,11 @@
   <data name="icons8-remote-desktop-ios-16-filled-701" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-remote-desktop-ios-16-filled-701.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BeautiqueDisplay_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BeautiqueDisplay-Regular.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="icons8-up-and-down-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-up-and-down-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BeautiqueDisplay_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeautiqueDisplay-Black.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="icons8-log-out-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-log-out-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,6 +223,9 @@
   <data name="MediumInternet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\output-onlinepngtools (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-information-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-information-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-email-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-email-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -219,9 +234,6 @@
   </data>
   <data name="icons8-user-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-user-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BeautiqueDisplay_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BeautiqueDisplay-Black.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BeautiqueDisplayCondensed_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BeautiqueDisplayCondensed-Italic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -234,6 +246,9 @@
   </data>
   <data name="BeautiqueDisplay_BoldItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BeautiqueDisplay-BoldItalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BeautiqueDisplay_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeautiqueDisplay-Regular.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BeautiqueDisplayCondensed_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BeautiqueDisplayCondensed-Black.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -310,8 +325,8 @@
   <data name="remote_dam" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paper-plane_8267048.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BeautiqueDisplay_LightItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BeautiqueDisplay-LightItalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="icons8-eye-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-eye-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_wi_fi_fair_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-wi-fi-fair-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,16 +340,16 @@
   <data name="icons8-password-key" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-password-key.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BeautiqueDisplay_LightItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeautiqueDisplay-LightItalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="menu_nhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\border_8054842.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Hanken_Design_Co___Neue_Einstellung_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hanken Design Co - Neue Einstellung Bold.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="icons8-forward-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-forward-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-forward-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-forward-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-eye-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-eye-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
