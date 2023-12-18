@@ -11,4 +11,3 @@ Bunifu.UI.WinForms.BunifuToggleSwitch, Bunifu.UI.WinForms.BunifuToggleSwitch, Ve
 Bunifu.UI.WinForms.BunifuButton.BunifuButton, Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
 Bunifu.Charts.WinForms.ChartTypes.BunifuBarChart, Bunifu.Charts.WinForms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
 Bunifu.Charts.WinForms.ChartTypes.BunifuDoughnutChart, Bunifu.Charts.WinForms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
-Bunifu.UI.WinForms.BunifuDropdown, Bunifu.UI.WinForms.BunifuDropdown, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9

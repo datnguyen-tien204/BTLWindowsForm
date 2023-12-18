@@ -13,11 +13,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace NguyenTienDat_10122119
 {
     public partial class frmViewScreen : Form
     {
+        /// <Form Radius>
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
+        /// </End>
         private void CheckAndChangeBackground()
         {
             
@@ -45,6 +58,9 @@ namespace NguyenTienDat_10122119
             string[] arr = resolution.Split(':');
             resolutionRemoteX = Int32.Parse(arr[1]);
             resolutionRemoteY = Int32.Parse(arr[2]);
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
 

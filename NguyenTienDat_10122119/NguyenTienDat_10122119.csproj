@@ -290,6 +290,12 @@
     <Compile Include="frmDevice.Designer.cs">
       <DependentUpon>frmDevice.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDeviceDisable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeviceDisable.Designer.cs">
+      <DependentUpon>frmDeviceDisable.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDeviceProperties.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,12 +356,6 @@
     <Compile Include="frmSuccessfully.Designer.cs">
       <DependentUpon>frmSuccessfully.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTest.Designer.cs">
-      <DependentUpon>frmTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmUnattended.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDevice.resx">
       <DependentUpon>frmDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeviceDisable.resx">
+      <DependentUpon>frmDeviceDisable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDeviceProperties.resx">
       <DependentUpon>frmDeviceProperties.cs</DependentUpon>
@@ -411,9 +414,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSuccessfully.resx">
       <DependentUpon>frmSuccessfully.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTest.resx">
-      <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUnattended.resx">
       <DependentUpon>frmUnattended.cs</DependentUpon>

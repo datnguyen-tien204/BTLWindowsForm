@@ -25,6 +25,19 @@ namespace NguyenTienDat_10122119
         private bool isDragging = false;
         private Point lastCursor;
         private Point lastForm;
+
+        /// <Form Radius>
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
+        /// </End>
         public frmMain()
         {
             InitializeComponent();
@@ -33,7 +46,9 @@ namespace NguyenTienDat_10122119
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton BtnConnect_Control
         {
@@ -200,7 +215,25 @@ namespace NguyenTienDat_10122119
         {
             btnConnect.Enabled = true;
             btnDevice.BackColor=Color.DarkBlue;
-            load_form(new frmDevice());
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath);
+
+                if (lines.Length >= 3)
+                {
+                    load_form(new frmDevice());
+
+                }
+                else
+                {
+                    load_form(new frmDeviceDisable());
+                }
+            }
+            else
+            {
+                load_form(new frmDeviceDisable());
+            }
+            
         }
 
 
