@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,12 +17,24 @@ namespace NguyenTienDat_10122119
 {
     public partial class frmBasic : Form
     {
+        // Khai báo hằng số để ngăn chặn sleep
+        const uint EXECUTION_STATE_SYSTEM_REQUIRED = 0x00000001;
+        const uint EXECUTION_STATE_CONTINUOUS = 0x80000000;
         public frmBasic()
         {
             InitializeComponent();
         }
         /// <Cấu hình các chức năng cần thiết của Form>
-        
+        private void PreventSleep()
+        {
+            SetThreadExecutionState(EXECUTION_STATE_SYSTEM_REQUIRED | EXECUTION_STATE_CONTINUOUS);
+        }
+
+        private void RestoreSleep()
+        {
+            SetThreadExecutionState(EXECUTION_STATE_CONTINUOUS);
+        }
+
         private void Active_Menu(bool isActive)
         {
             if (isActive)
@@ -96,14 +110,22 @@ namespace NguyenTienDat_10122119
         {
             Active_Menu(true);
             SaveFormState();
+
         }
 
         private void btnPreventDevice_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
         {
             Active_Menu(true);
             SaveFormState();
+            if(tglPreventDevice.Checked==true)
+            {
+                PreventSleep();
+            }
+            else
+            {
+                RestoreSleep();
+            }
         }
-
         private void txtDeviceName_TextChanged(object sender, EventArgs e)
         {
 
@@ -119,7 +141,38 @@ namespace NguyenTienDat_10122119
             Active_Menu(true);
             SaveFormState();
         }
+        [DllImport("kernel32.dll")]
+        static extern uint SetThreadExecutionState(uint esFlags);
 
         
+        private void frmBasic_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(tglStartWithWindows.Checked==true)
+            {
+                string jsonFilePath = "AllFormsState.json";
+                string jsonString = File.ReadAllText(jsonFilePath);
+                dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+
+                bool lockInterfaceOfFrmBasic = jsonData.frmBasic.LockInterface;
+
+                if (lockInterfaceOfFrmBasic == true)
+                {
+                    RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                    reg.SetValue("Dat's Viewer", System.Windows.Forms.Application.ExecutablePath.ToString());
+                }
+                else
+                {
+                    RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+                    if (lockInterfaceOfFrmBasic && reg != null)
+                    {
+                        if (reg.GetValue("Dat's Viewer") != null)
+                        {
+                            reg.DeleteValue("Dat's Viewer");
+                        }
+                    }
+                }
+            }
+        }
     }
 }

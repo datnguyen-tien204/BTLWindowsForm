@@ -70,14 +70,16 @@ namespace NguyenTienDat_10122119
         {
             if((MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question))==DialogResult.Yes)
             {
+                   RestoreSleep();
                    Application.Exit();
+                    
             }
             frmLogin mainForm = this.ParentForm as frmLogin;
             if (mainForm != null)
             {
                 mainForm.Checked_AutoLogin();
             }
-
+            
 
 
         }
@@ -284,6 +286,7 @@ namespace NguyenTienDat_10122119
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            Sleep();
             label3.Font = new Font(pfc.Families[0], label3.Font.Size,FontStyle.Bold);
             btnConnect.PerformClick();
 
@@ -301,12 +304,52 @@ namespace NguyenTienDat_10122119
             else
             {
                 RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                reg.DeleteValue("Dat's Viewer");
+
+                if (lockInterfaceOfFrmBasic && reg != null)
+                {
+                    if (reg.GetValue("Dat's Viewer") != null)
+                    {
+                        reg.DeleteValue("Dat's Viewer");
+                    }
+                }
             }
 
         }
+        /// <Custom Sleep for Forms>
+        [DllImport("kernel32.dll")]
+        static extern uint SetThreadExecutionState(uint esFlags);
 
+        const uint EXECUTION_STATE_SYSTEM_REQUIRED = 0x00000001;
+        const uint EXECUTION_STATE_CONTINUOUS = 0x80000000;
+        private void PreventSleep()
+        {
+            SetThreadExecutionState(EXECUTION_STATE_SYSTEM_REQUIRED | EXECUTION_STATE_CONTINUOUS);
+        }
 
+        private void RestoreSleep()
+        {
+            SetThreadExecutionState(EXECUTION_STATE_CONTINUOUS);
+        }
+
+        private void Sleep()
+        {
+            string jsonFilePath = "AllFormsState.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+
+            bool lockInterfaceOfFrmBasic = jsonData.frmBasic.LockedComputer;
+            if (lockInterfaceOfFrmBasic == true)
+            {
+                PreventSleep();
+            }
+            else
+            {
+               RestoreSleep();
+            }
+        }
+        /// </End>
+        /// <param name="esFlags"></param>
+        /// <returns></returns>
 
         private void picInternet_Click(object sender, EventArgs e)
         {
@@ -321,6 +364,11 @@ namespace NguyenTienDat_10122119
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            RestoreSleep();
         }
     }
 }

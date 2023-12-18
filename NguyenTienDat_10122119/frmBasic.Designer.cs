@@ -382,6 +382,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBasic";
             this.Text = "frmBasic";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBasic_FormClosed);
             this.Load += new System.EventHandler(this.frmBasic_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

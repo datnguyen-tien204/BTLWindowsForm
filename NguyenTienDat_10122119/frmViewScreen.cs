@@ -67,6 +67,19 @@ namespace NguyenTienDat_10122119
             showScreen.IsBackground = true;
             showScreen.Start();
         }
+        private string GetMinutesText()
+        {
+            string jsonContent = File.ReadAllText("AllFormsState.json");
+            JObject jsonObject = JObject.Parse(jsonContent);
+            string minutesText = (string)jsonObject["frmRecipient"]["MinutesText"]; 
+            return minutesText;
+        }
+        private Bitmap ResizeImage(Bitmap originalImage, int desiredWidth, int desiredHeight)
+        {
+            Bitmap resizedImage = new Bitmap(originalImage, new Size(desiredWidth, desiredHeight));
+            return resizedImage;
+        }
+
 
         private void ShowScreen()
         {
@@ -77,6 +90,25 @@ namespace NguyenTienDat_10122119
                     BinaryFormatter bFormat = new BinaryFormatter();
                     Bitmap bmp = bFormat.Deserialize(ns) as Bitmap;
                     Bitmap resized = new Bitmap(bmp);
+                    string minutesText = GetMinutesText();
+                    {
+                        int desiredWidth = 800; 
+                        int desiredHeight = 600;
+                        if (minutesText == "0")
+                        {
+                            pbViewScreen.BackgroundImage = (Image)bmp;
+                        }
+                        else if(minutesText=="1")
+                        {
+                            Bitmap highResImage = ResizeImage(bmp, desiredWidth, desiredHeight); 
+                            pbViewScreen.BackgroundImage = (Image)highResImage;
+                        }    
+                        else if(minutesText=="2")
+                        {
+                            Bitmap lowQualityImage = ResizeImage(bmp, desiredWidth, desiredHeight); 
+                            pbViewScreen.BackgroundImage = (Image)lowQualityImage;
+                        }    
+                    }
                     pbViewScreen.BackgroundImage = (Image)resized;
                 }
             }

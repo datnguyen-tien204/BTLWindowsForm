@@ -120,10 +120,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuButton9.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABoSURBVDhPYwCBf//+eQDx+f9EAJA6IE4FawTyQ4Gc9xAp
-        4gBQ/UcgrgTZeg8qRhIA6vsGsplsMKqZRDBUNQNTymsomyQA1PcbpLkHiL9AxYgCQPW/gHgHOHMAGZOg
-        4kQBkMb///9zAACpH27NQ8o3aAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABqSURBVDhPYwCBf//+eQDx+f9kApBeIE4FGwbkhwI57yFS
+        5AOgGR+BuBLkuntQMYoB0KxvIBdSFYwaSDkYNZByAMopr6FsigHQrN8gA3uA+AtUjGwANOMXEO8AFxBA
+        xiSoONkAZNj///85AEeTmbAYDVBtAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="bunifuButton9.IdleIconLeftImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
