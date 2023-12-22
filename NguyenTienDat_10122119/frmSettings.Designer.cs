@@ -625,9 +625,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(173, 0);
+            this.panel2.Location = new System.Drawing.Point(165, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(440, 364);
+            this.panel2.Size = new System.Drawing.Size(448, 364);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
