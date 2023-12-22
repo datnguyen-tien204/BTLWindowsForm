@@ -447,7 +447,7 @@
             this.btnLogIn.TextMarginLeft = 0;
             this.btnLogIn.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnLogIn.UseDefaultRadiusAndThickness = true;
-            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn2_Click);
             // 
             // txtPassword
             // 

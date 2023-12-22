@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,45 +57,60 @@ namespace NguyenTienDat_10122119
             frm.ShowDialog();
             this.Close();
         }
+        private const string filePath2 = "AllFormsState.json";
+        private FormState currentState = new FormState();
+        private void SaveFormState(bool accepted, string email)
+        {
 
-        private void btnLogIn_Click(object sender, EventArgs e)
+            // Tạo một đối tượng FormState để lưu trạng thái của form Recipient
+            FormState currentState = new FormState
+            {
+                LockInterface = accepted,
+                LockedComputer = false,
+                MinutesText = email
+            };
+
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState();
+            allFormsState[GetType().Name] = currentState;
+
+            string json = JsonConvert.SerializeObject(allFormsState, Formatting.Indented);
+            File.WriteAllText(filePath2, json);
+        }
+
+        private Dictionary<string, FormState> LoadAllFormsState()
+        {
+            if (File.Exists(filePath2))
+            {
+                string json = File.ReadAllText(filePath2);
+                return JsonConvert.DeserializeObject<Dictionary<string, FormState>>(json);
+            }
+            return new Dictionary<string, FormState>();
+        }
+
+        clsDatabase cls = new clsDatabase();
+        private void btnLogIn2_Click(object sender, EventArgs e)
         {
             string enteredEmail = txtEmail.Text;
             string enteredPassword = txtPassword.Text;
 
-            string connStr = @"Data Source=NGUYENTIENDAT;Initial Catalog=RemoteDesktop;Integrated Security=True";
+            bool accepted= cls.getPassword(enteredEmail, enteredPassword);
 
-            using (SqlConnection conn = new SqlConnection(connStr))
+            if (accepted)
             {
-                conn.Open();
-
-                string query = "SELECT COUNT(*) FROM Account WHERE Email = @Email AND Password = @Password";
-                using (SqlCommand command = new SqlCommand(query, conn))
-                {
-                    command.Parameters.AddWithValue("@Email", enteredEmail);
-                    command.Parameters.AddWithValue("@Password", enteredPassword);
-
-                    int count = (int)command.ExecuteScalar();
-
-                    if (count > 0)
-                    {
-                        this.Hide();
-                        string Email= enteredEmail;
-                        Properties.Settings.Default.ChaoMung = Email;
-                        Properties.Settings.Default.Save();
-                    }
-                    else
-                    {
-                        string Email = "";
-                        Properties.Settings.Default.ChaoMung = Email;
-                        Properties.Settings.Default.Save();
-                        MessageBox.Show("Đăng nhập không thành công. Vui lòng kiểm tra lại Email và Password!");
-                    }
-                }
+                SaveFormState(true, enteredEmail);
+                this.Hide();
+                
             }
-            if(chkAutoLogin.Checked)
+            else
             {
-                SaveFormState();
+                SaveFormState(false, "");
+                MessageBox.Show("Đăng nhập không thành công. Vui lòng kiểm tra lại Email và Password!");
+                        
+            }
+
+            if (chkAutoLogin.Checked)
+            {
+                SaveFormStateAutoLogin();
             }
             this.Close();
         }
@@ -101,77 +118,26 @@ namespace NguyenTienDat_10122119
         {
             if(chkAutoLogin.Checked)
             {
-                SaveFormState();
+                SaveFormStateAutoLogin();
             }
             else
             {
-                using (StreamWriter writer = new StreamWriter(filePath))
-                {
-                    writer.WriteLine("");
-                }
+                File.WriteAllText(filePath3, string.Empty);
             }
         }
-        private const string filePath = "AutoLogin.txt";
-        private void SaveFormState()
-        {
-            string Email = txtEmail.Text;
-            string Password = txtPassword.Text;
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                writer.WriteLine(chkAutoLogin.Checked);
-                writer.WriteLine(Email);
-                writer.WriteLine(Password);
-            }
-        }
-        private void LoadFormState()
-        {
-            if (File.Exists(filePath))
-            {
-                string[] lines = File.ReadAllLines(filePath);
-
-                if (lines.Length >= 3) 
-                {
-                    bool autoLogin = Convert.ToBoolean(lines[0]);
-                    string savedEmail = lines[1];
-                    string savedPassword = lines[2];
-
-                    txtEmail.Text = savedEmail;
-                    txtPassword.Text = savedPassword;
-                    chkAutoLogin.Checked = autoLogin;
-
-                    btnLogIn.PerformClick();
-                }
-                else
-                {
-                    
-                }
-            }
-            else
-            {
-            }
-        }
+        
 
         private void chkAutoLogin_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
         {
             if (chkAutoLogin.Checked)
             {
-                string Email = txtEmail.Text;
-                string Password = txtPassword.Text;
-                Properties.Settings.Default.Email = Email;
-                Properties.Settings.Default.Password = Password;
-                Properties.Settings.Default.Save();
+                SaveFormStateAutoLogin();
             }
-            else
-            {
-                Properties.Settings.Default.Email = "";
-                Properties.Settings.Default.Password = "";
-                Properties.Settings.Default.Save();
-            }    
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            LoadFormState();
+            LoadFormStateAutoLogin();
         }
 
         private void btnForgetPass_Click(object sender, EventArgs e)
@@ -203,6 +169,53 @@ namespace NguyenTienDat_10122119
         private void bunifuPanel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
+        }
+        
+        /// <Save data moi khi thay doi>
+        string filePath3 = "AutoLogin.json";
+        private void SaveFormStateAutoLogin()
+        {
+            AutoLogin currentState = new AutoLogin()
+            {
+                autologining = chkAutoLogin.Checked,
+                email = txtEmail.Text.ToString(),
+                password = txtPassword.Text.ToString()
+            };
+
+            Dictionary<string, AutoLogin> allFormsState = LoadAllFormsStateAutoLogin();
+            allFormsState[GetType().Name] = currentState;
+
+            string json = JsonConvert.SerializeObject(allFormsState, Formatting.Indented);
+            File.WriteAllText(filePath3, json);
+        }
+
+        private void LoadFormStateAutoLogin()
+        {
+            Dictionary<string, AutoLogin> allFormsState = LoadAllFormsStateAutoLogin();
+            string formName = GetType().Name;
+
+            if (allFormsState != null && allFormsState.ContainsKey(formName))
+            {
+                AutoLogin currentState = allFormsState[formName];
+
+                chkAutoLogin.Checked = currentState.autologining;
+                txtEmail.Text = currentState.email;
+                txtPassword.Text = currentState.password;
+            }
+            else
+            {
+            }
+        }
+
+
+        private Dictionary<string, AutoLogin> LoadAllFormsStateAutoLogin()
+        {
+            if (File.Exists(filePath3))
+            {
+                string json = File.ReadAllText(filePath3);
+                return JsonConvert.DeserializeObject<Dictionary<string, AutoLogin>>(json);
+            }
+            return new Dictionary<string, AutoLogin>();
         }
     }
 }

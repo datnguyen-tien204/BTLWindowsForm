@@ -69,6 +69,7 @@
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(506, 256);
             this.bunifuPanel1.TabIndex = 1;
+            this.bunifuPanel1.Click += new System.EventHandler(this.bunifuPanel1_Click);
             // 
             // bunifuPictureBox1
             // 
@@ -243,7 +244,7 @@
             this.btnLogOut.IdleIconRightImage = null;
             this.btnLogOut.IndicateFocus = false;
             this.btnLogOut.Location = new System.Drawing.Point(3, 165);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(0);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.OnDisabledState.BorderColor = System.Drawing.Color.White;
             this.btnLogOut.OnDisabledState.BorderRadius = 10;
@@ -334,7 +335,7 @@
             this.btnChangePassword.IdleIconLeftImage = global::NguyenTienDat_10122119.Properties.Resources.icons8_lock_24;
             this.btnChangePassword.IdleIconRightImage = null;
             this.btnChangePassword.IndicateFocus = false;
-            this.btnChangePassword.Location = new System.Drawing.Point(-1, 81);
+            this.btnChangePassword.Location = new System.Drawing.Point(3, 81);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.OnDisabledState.BorderColor = System.Drawing.Color.White;
             this.btnChangePassword.OnDisabledState.BorderRadius = 10;
@@ -369,7 +370,7 @@
             this.btnChangePassword.OnPressedState.IconLeftImage = null;
             this.btnChangePassword.OnPressedState.IconRightImage = null;
             this.btnChangePassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnChangePassword.Size = new System.Drawing.Size(142, 36);
+            this.btnChangePassword.Size = new System.Drawing.Size(154, 36);
             this.btnChangePassword.TabIndex = 0;
             this.btnChangePassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnChangePassword.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;

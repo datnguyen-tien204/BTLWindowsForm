@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Data.SqlClient;
 using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace NguyenTienDat_10122119
 {
@@ -39,70 +41,64 @@ namespace NguyenTienDat_10122119
         {
            
             pnlMore.Visible = false;
-            if (File.Exists(filePath))
-            {
-                string[] lines = File.ReadAllLines(filePath);
+            string jsonFilePath = "AllFormsState.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
 
-                if (lines.Length >= 3)
+            bool accepted = jsonData.frmLogin.LockInterface;
+            string email = jsonData.frmLogin.MinutesText;
+            if(accepted==true&&email!="")
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connStr))
                 {
-                    bool autoLogin = Convert.ToBoolean(lines[0]);
-                    string savedEmail = lines[1];
-                    string savedPassword = lines[2];
-                    string result = string.Empty;
-                  
-                    using (SqlConnection sqlCon = new SqlConnection(connStr))
+                    sqlCon.Open();
+                    using (SqlCommand sqlCom = new SqlCommand($"select * from Account where Email='{email}'", sqlCon))
                     {
-                        sqlCon.Open();
-
-                        // Create SqlCommand with connection
-                        using (SqlCommand sqlCom = new SqlCommand($"select * from Account where Email='{savedEmail}'", sqlCon))
+                        using (SqlDataReader sqlRe = sqlCom.ExecuteReader())
                         {
-                            using (SqlDataReader sqlRe = sqlCom.ExecuteReader())
+                            while (sqlRe.Read())
                             {
-                                while (sqlRe.Read())
-                                {
-                                    string Email = sqlRe[0].ToString();
-                                    string Password = sqlRe[1].ToString();
-                                    string Name = sqlRe[2].ToString();
-                                    lblEmail.Text = Email;
-                                    lblName.Text = Name;                                     
-                                }
-                                
+                                string Email = sqlRe[0].ToString();
+                                string Password = sqlRe[1].ToString();
+                                string Name = sqlRe[2].ToString();
+                                lblEmail.Text = Email;
+                                lblName.Text = Name;
                             }
+
                         }
-                        sqlCon.Close(); 
                     }
-
-                }
-                else
-                {
-
+                    sqlCon.Close();
                 }
             }
-            else
-            {
-            }
+
             
-
         }
         private const string filePath = "AutoLogin.txt";
 
+
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            try
-            {
+            ModifyLoginFormState();
+        }
+        private const string filePath3 = "AllFormsState.json";
 
-                using (StreamWriter writer = new StreamWriter(filePath))
-                {
-                    writer.Write("");
-                }
-                
-
-            }
-            catch (Exception ex)
+        private void ModifyLoginFormState()
+        {
+            string json = File.ReadAllText(filePath3);
+            JObject data = JObject.Parse(json);
+            if (data.ContainsKey("frmLogin"))
             {
-                
+                JObject frmLoginData = (JObject)data["frmLogin"];
+                frmLoginData["LockInterface"] = false; 
+                frmLoginData["MinutesText"] = ""; 
             }
+
+            File.WriteAllText(filePath3, data.ToString());
+        }
+
+        private void bunifuPanel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

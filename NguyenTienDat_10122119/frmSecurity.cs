@@ -149,4 +149,10 @@ namespace NguyenTienDat_10122119
         public bool LockedComputer { get; set; }
         public string MinutesText { get; set; }
     }
+    public class AutoLogin
+    {
+        public bool autologining { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+    }
 }

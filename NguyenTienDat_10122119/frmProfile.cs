@@ -52,5 +52,10 @@ namespace NguyenTienDat_10122119
                 mainForm.EnableBtnSetting(false, "btnDevice");
             }
         }
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

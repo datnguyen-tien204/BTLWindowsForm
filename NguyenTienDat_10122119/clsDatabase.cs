@@ -110,6 +110,55 @@ namespace NguyenTienDat_10122119
                 MessageBox.Show("Password changed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        public bool getEmailAvailable(string email)
+        {
+            string sqlCon = LoadConnectionString();
+            using (SqlConnection conn = new SqlConnection(sqlCon))
+            {
+                conn.Open();
+                string checkQuery = "SELECT COUNT(*) FROM Account WHERE Email = @Email";
+                using (SqlCommand checkCommand = new SqlCommand(checkQuery, conn))
+                {
+                    checkCommand.Parameters.AddWithValue("@Email", email);
+
+                    int existingEmailCount = (int)checkCommand.ExecuteScalar();
+
+                    if (existingEmailCount > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        public bool getPassword(string email, string password)
+        {
+            string sqlCon = LoadConnectionString();
+            using (SqlConnection conn = new SqlConnection(sqlCon))
+            {
+                conn.Open();
+                string checkQuery = "SELECT COUNT(*) FROM Account WHERE Email = @Email AND Password = @Password";
+                using (SqlCommand checkCommand = new SqlCommand(checkQuery, conn))
+                {
+                    checkCommand.Parameters.AddWithValue("@Email", email);
+                    checkCommand.Parameters.AddWithValue("@Password", password);
+
+                    int existingEmailCount = (int)checkCommand.ExecuteScalar();
+
+                    if (existingEmailCount > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
 
     }
 }

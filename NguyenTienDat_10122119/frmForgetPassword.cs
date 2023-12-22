@@ -69,31 +69,8 @@ namespace NguyenTienDat_10122119
 
         }
         private string codeSent;
-        string connStr = @"Data Source=NGUYENTIENDAT;Initial Catalog=RemoteDesktop;Integrated Security=True";
-        private bool getEmailAvailable(string email)
-        {
-
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                conn.Open();
-                string checkQuery = "SELECT COUNT(*) FROM Account WHERE Email = @Email";
-                using (SqlCommand checkCommand = new SqlCommand(checkQuery, conn))
-                {
-                    checkCommand.Parameters.AddWithValue("@Email", email);
-
-                    int existingEmailCount = (int)checkCommand.ExecuteScalar();
-
-                    if (existingEmailCount > 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-        }
+        clsDatabase clsDatabase = new clsDatabase();
+        
 
         private void btnSend_Click(object sender, EventArgs e)
         {
@@ -107,7 +84,7 @@ namespace NguyenTienDat_10122119
             }
             else
             {
-                if (getEmailAvailable(txtEmail.Text.Trim()) == false)
+                if (clsDatabase.getEmailAvailable(txtEmail.Text.Trim()) == false)
                 {
                     MessageBox.Show("Email not found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -156,10 +133,9 @@ namespace NguyenTienDat_10122119
                 }
             }
         }
-        clsDatabase clsDatabase = new clsDatabase();
         private void CheckData(string email, string newPassword)
         {
-            if (getEmailAvailable(email) == false)
+            if (clsDatabase.getEmailAvailable(email) == false)
             {
                 MessageBox.Show("Email not found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

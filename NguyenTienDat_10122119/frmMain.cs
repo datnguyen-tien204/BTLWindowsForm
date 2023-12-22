@@ -237,29 +237,23 @@ namespace NguyenTienDat_10122119
         }
 
 
-        private const string filePath = "AutoLogin.txt";
+        private const string filePath = "AutoLogin.txt";    
         private void btnProfile_Click(object sender, EventArgs e)
         {
             btnConnect.Enabled = true;
-            load_form(new frmProfile());
-            if (File.Exists(filePath))
+            string jsonFilePath = "AllFormsState.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+
+            bool accepted = jsonData.frmLogin.LockInterface;
+            if (accepted == true)
             {
-                string[] lines = File.ReadAllLines(filePath);
-
-                if (lines.Length >= 3)
-                {
-                    load_form(new frmSuccessfully());
-
-                }
-                else
-                {
-
-                }
+                load_form(new frmSuccessfully());
             }
             else
             {
+                load_form(new frmProfile());
             }
-
         }
         public void EnableBtnSetting(bool enabled,string button)
         {
