@@ -243,6 +243,7 @@
             this.btnLogOut.IdleIconRightImage = null;
             this.btnLogOut.IndicateFocus = false;
             this.btnLogOut.Location = new System.Drawing.Point(3, 165);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.OnDisabledState.BorderColor = System.Drawing.Color.White;
             this.btnLogOut.OnDisabledState.BorderRadius = 10;

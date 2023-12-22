@@ -127,43 +127,7 @@ namespace NguyenTienDat_10122119
             }
 
         }
-        protected string connStr = @"Data Source=NGUYENTIENDAT;Initial Catalog=RemoteDesktop;Integrated Security=True";
-
-        private void InsertData(string name, string email, string password)
-        {
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                conn.Open();
-                string checkQuery = "SELECT COUNT(*) FROM Account WHERE Email = @Email";
-                using (SqlCommand checkCommand = new SqlCommand(checkQuery, conn))
-                {
-                    checkCommand.Parameters.AddWithValue("@Email", email);
-
-                    int existingEmailCount = (int)checkCommand.ExecuteScalar();
-
-                    if (existingEmailCount > 0)
-                    {
-                        MessageBox.Show("Email already exists. Please add another email or select forgot password to recover your account!","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        txtEmail.Text = "";
-                        txtPassword.Text = "";
-                        txtName.Text = "";
-                        txtSecureCode.Text = "";
-                        return; 
-                    }
-                }
-
-                string insertQuery = "INSERT INTO Account (Email, Password, Name) VALUES (@Email, @Password, @Name)";
-                using (SqlCommand command = new SqlCommand(insertQuery, conn))
-                {
-                    command.Parameters.AddWithValue("@Email", (object)email ?? DBNull.Value);
-                    command.Parameters.AddWithValue("@Password", password);
-                    command.Parameters.AddWithValue("@Name", name);
-
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
+        clsDatabase clsDatabase = new clsDatabase();
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
@@ -185,7 +149,7 @@ namespace NguyenTienDat_10122119
                 Console.WriteLine(txtEmail.Text);
                 Console.WriteLine(txtName);
                 Console.WriteLine(txtPassword);
-                InsertData(txtName.Text, txtEmail.Text, txtPassword.Text);
+                clsDatabase.InsertData(txtName.Text.Trim(), txtEmail.Text.Trim(), txtPassword.Text.Trim());
                 this.Close();
             }
         }

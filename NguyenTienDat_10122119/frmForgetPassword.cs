@@ -69,8 +69,10 @@ namespace NguyenTienDat_10122119
 
         }
         private string codeSent;
+        string connStr = @"Data Source=NGUYENTIENDAT;Initial Catalog=RemoteDesktop;Integrated Security=True";
         private bool getEmailAvailable(string email)
         {
+
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
@@ -154,7 +156,7 @@ namespace NguyenTienDat_10122119
                 }
             }
         }
-        protected string connStr = @"Data Source=NGUYENTIENDAT;Initial Catalog=RemoteDesktop;Integrated Security=True";
+        clsDatabase clsDatabase = new clsDatabase();
         private void CheckData(string email, string newPassword)
         {
             if (getEmailAvailable(email) == false)
@@ -163,18 +165,7 @@ namespace NguyenTienDat_10122119
             }
             else
             {
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    conn.Open();
-                    string updateQuery = "UPDATE Account SET Password = @NewPassword WHERE Email = @Email";
-                    using (SqlCommand command = new SqlCommand(updateQuery, conn))
-                    {
-                        command.Parameters.AddWithValue("@NewPassword", newPassword);
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.ExecuteNonQuery();
-                    }
-                    MessageBox.Show("Password changed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                clsDatabase.UpdatePassword(email, newPassword);
             }
         }
 

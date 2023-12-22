@@ -266,6 +266,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsDatabase.cs" />
     <Compile Include="frmBasic.cs">
       <SubType>Form</SubType>
     </Compile>

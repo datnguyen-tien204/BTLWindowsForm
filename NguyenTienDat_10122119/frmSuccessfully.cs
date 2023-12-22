@@ -20,11 +20,6 @@ namespace NguyenTienDat_10122119
         {
             InitializeComponent();
         }
-        SqlConnection sqlCon;
-        SqlCommand sqlCom;
-        SqlDataReader sqlRe;
-        SqlDataAdapter sqlAdap;
-        DataSet ds;
 
         private void btnMore_Click(object sender, EventArgs e)
         {
@@ -96,10 +91,13 @@ namespace NguyenTienDat_10122119
         {
             try
             {
+
                 using (StreamWriter writer = new StreamWriter(filePath))
                 {
                     writer.Write("");
                 }
+                
+
             }
             catch (Exception ex)
             {
