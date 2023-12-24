@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace NguyenTienDat_10122119
 {
@@ -35,7 +36,7 @@ namespace NguyenTienDat_10122119
                 pnlMore.Visible = false;
             }
         }
-        protected string connStr = @"Data Source=NGUYENTIENDAT;Initial Catalog=RemoteDesktop;Integrated Security=True";
+        clsDatabase clsDatabase = new clsDatabase();
 
         private void frmSuccessfully_Load(object sender, EventArgs e)
         {
@@ -49,29 +50,24 @@ namespace NguyenTienDat_10122119
             string email = jsonData.frmLogin.MinutesText;
             if(accepted==true&&email!="")
             {
-                using (SqlConnection sqlCon = new SqlConnection(connStr))
-                {
-                    sqlCon.Open();
-                    using (SqlCommand sqlCom = new SqlCommand($"select * from Account where Email='{email}'", sqlCon))
-                    {
-                        using (SqlDataReader sqlRe = sqlCom.ExecuteReader())
-                        {
-                            while (sqlRe.Read())
-                            {
-                                string Email = sqlRe[0].ToString();
-                                string Password = sqlRe[1].ToString();
-                                string Name = sqlRe[2].ToString();
-                                lblEmail.Text = Email;
-                                lblName.Text = Name;
-                            }
+                User[] usersInfo = clsDatabase.GetUserInfoFromDatabase(email);
 
-                        }
-                    }
-                    sqlCon.Close();
+                foreach (User user in usersInfo)
+                {
+                    lblEmail.Text = user.Email;
+                    lblName.Text = user.Name;
                 }
             }
 
-            
+            frmMain mainForm = this.ParentForm as frmMain;
+            if (mainForm != null)
+            {
+                mainForm.EnableBtnSetting(false, "btnConnect");
+                mainForm.EnableBtnSetting(false, "btnSetting");
+                mainForm.EnableBtnSetting(false, "btnDevice");
+            }
+
+
         }
         private const string filePath = "AutoLogin.txt";
 
@@ -100,5 +96,70 @@ namespace NguyenTienDat_10122119
         {
 
         }
+
+        private void btnManagementCenter_Click(object sender, EventArgs e)
+        {
+            string facebookLink = "https://www.facebook.com";
+
+            try
+            {
+                // Mở đường link Facebook trong trình duyệt mặc định
+                Process.Start(facebookLink);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể mở đường link Facebook. Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnChangeUsername_Click(object sender, EventArgs e)
+        {
+            frmChangeUserName frmChangeUserName = new frmChangeUserName();
+            frmChangeUserName.ShowDialog();
+        }
+
+        private void btnEditProfilePicture_Click(object sender, EventArgs e)
+        {
+            String imageLocation = "";
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+                if(dialog.ShowDialog()==System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+                    imgProfile.ImageLocation = imageLocation;
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("An error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void imgProfile_Click(object sender, EventArgs e)
+        {
+            String imageLocation = "";
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+                    imgProfile.ImageLocation = imageLocation;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+    public class User
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
     }
 }

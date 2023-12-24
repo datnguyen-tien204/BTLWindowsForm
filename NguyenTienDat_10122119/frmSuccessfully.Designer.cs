@@ -36,7 +36,7 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.imgProfile = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.pnlMore = new Bunifu.UI.WinForms.BunifuPanel();
             this.btnEditProfilePicture = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnLogOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -47,7 +47,7 @@
             this.lblEmail = new Bunifu.UI.WinForms.BunifuLabel();
             this.lblName = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgProfile)).BeginInit();
             this.pnlMore.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 25;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.bunifuPictureBox1);
+            this.bunifuPanel1.Controls.Add(this.imgProfile);
             this.bunifuPanel1.Controls.Add(this.pnlMore);
             this.bunifuPanel1.Controls.Add(this.btnMore);
             this.bunifuPanel1.Controls.Add(this.lblEmail);
@@ -71,21 +71,22 @@
             this.bunifuPanel1.TabIndex = 1;
             this.bunifuPanel1.Click += new System.EventHandler(this.bunifuPanel1_Click);
             // 
-            // bunifuPictureBox1
+            // imgProfile
             // 
-            this.bunifuPictureBox1.AllowFocused = false;
-            this.bunifuPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuPictureBox1.AutoSizeHeight = true;
-            this.bunifuPictureBox1.BorderRadius = 56;
-            this.bunifuPictureBox1.Image = global::NguyenTienDat_10122119.Properties.Resources.icons8_user_96;
-            this.bunifuPictureBox1.IsCircle = true;
-            this.bunifuPictureBox1.Location = new System.Drawing.Point(45, 27);
-            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
-            this.bunifuPictureBox1.Size = new System.Drawing.Size(112, 112);
-            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuPictureBox1.TabIndex = 6;
-            this.bunifuPictureBox1.TabStop = false;
-            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            this.imgProfile.AllowFocused = false;
+            this.imgProfile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgProfile.AutoSizeHeight = true;
+            this.imgProfile.BorderRadius = 56;
+            this.imgProfile.Image = global::NguyenTienDat_10122119.Properties.Resources.icons8_user_96;
+            this.imgProfile.IsCircle = true;
+            this.imgProfile.Location = new System.Drawing.Point(45, 27);
+            this.imgProfile.Name = "imgProfile";
+            this.imgProfile.Size = new System.Drawing.Size(112, 112);
+            this.imgProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgProfile.TabIndex = 6;
+            this.imgProfile.TabStop = false;
+            this.imgProfile.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            this.imgProfile.Click += new System.EventHandler(this.imgProfile_Click);
             // 
             // pnlMore
             // 
@@ -154,7 +155,7 @@
             this.btnEditProfilePicture.IdleIconLeftImage = global::NguyenTienDat_10122119.Properties.Resources.icons8_user_24;
             this.btnEditProfilePicture.IdleIconRightImage = null;
             this.btnEditProfilePicture.IndicateFocus = false;
-            this.btnEditProfilePicture.Location = new System.Drawing.Point(0, 123);
+            this.btnEditProfilePicture.Location = new System.Drawing.Point(3, 123);
             this.btnEditProfilePicture.Name = "btnEditProfilePicture";
             this.btnEditProfilePicture.OnDisabledState.BorderColor = System.Drawing.Color.White;
             this.btnEditProfilePicture.OnDisabledState.BorderRadius = 1;
@@ -195,6 +196,7 @@
             this.btnEditProfilePicture.TextMarginLeft = 0;
             this.btnEditProfilePicture.TextPadding = new System.Windows.Forms.Padding(-10, 0, 0, 0);
             this.btnEditProfilePicture.UseDefaultRadiusAndThickness = true;
+            this.btnEditProfilePicture.Click += new System.EventHandler(this.btnEditProfilePicture_Click);
             // 
             // btnLogOut
             // 
@@ -466,6 +468,7 @@
             this.btnChangeUsername.TextMarginLeft = 0;
             this.btnChangeUsername.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnChangeUsername.UseDefaultRadiusAndThickness = true;
+            this.btnChangeUsername.Click += new System.EventHandler(this.btnChangeUsername_Click);
             // 
             // btnManagementCenter
             // 
@@ -495,7 +498,6 @@
             this.btnManagementCenter.DisabledBorderColor = System.Drawing.Color.White;
             this.btnManagementCenter.DisabledFillColor = System.Drawing.Color.White;
             this.btnManagementCenter.DisabledForecolor = System.Drawing.Color.Black;
-            this.btnManagementCenter.Enabled = false;
             this.btnManagementCenter.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.btnManagementCenter.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagementCenter.ForeColor = System.Drawing.Color.Black;
@@ -556,6 +558,7 @@
             this.btnManagementCenter.TextMarginLeft = 0;
             this.btnManagementCenter.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnManagementCenter.UseDefaultRadiusAndThickness = true;
+            this.btnManagementCenter.Click += new System.EventHandler(this.btnManagementCenter_Click);
             // 
             // btnMore
             // 
@@ -692,7 +695,7 @@
             this.Load += new System.EventHandler(this.frmSuccessfully_Load);
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgProfile)).EndInit();
             this.pnlMore.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -710,6 +713,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnLogOut;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnMore;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnEditProfilePicture;
-        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
+        private Bunifu.UI.WinForms.BunifuPictureBox imgProfile;
     }
 }

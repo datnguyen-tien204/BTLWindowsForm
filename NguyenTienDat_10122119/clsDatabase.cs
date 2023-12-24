@@ -110,6 +110,21 @@ namespace NguyenTienDat_10122119
                 MessageBox.Show("Password changed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        public void UpdateUserName(string email, string newName)
+        {
+            string sqlCon = LoadConnectionString();
+            using (SqlConnection conn = new SqlConnection(sqlCon))
+            {
+                conn.Open();
+                string updateQuery = "UPDATE Account SET Name = @NewName WHERE Email = @Email";
+                using (SqlCommand command = new SqlCommand(updateQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@NewName", newName);
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
         public bool getEmailAvailable(string email)
         {
             string sqlCon = LoadConnectionString();
@@ -159,6 +174,38 @@ namespace NguyenTienDat_10122119
                 }
             }
         }
+        public User[] GetUserInfoFromDatabase(string email)
+        {
+            List<User> users = new List<User>();
+
+            string query = "SELECT Email, Password, Name FROM Account WHERE Email = @Email";
+            string sqlCon = LoadConnectionString();
+            using (SqlConnection sqlConnection = new SqlConnection(sqlCon))
+            {
+                using (SqlCommand sqlCom = new SqlCommand(query, sqlConnection))
+                {
+                    sqlCom.Parameters.AddWithValue("@Email", email);
+
+                    sqlConnection.Open();
+                    using (SqlDataReader sqlRe = sqlCom.ExecuteReader())
+                    {
+                        while (sqlRe.Read())
+                        {
+                            User user = new User
+                            {
+                                Email = sqlRe["Email"].ToString(),
+                                Password = sqlRe["Password"].ToString(),
+                                Name = sqlRe["Name"].ToString()
+                            };
+                            users.Add(user);
+                        }
+                    }
+                }
+
+                return users.ToArray();
+            }
+        }
+
 
     }
 }
