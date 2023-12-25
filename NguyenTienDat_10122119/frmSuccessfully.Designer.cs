@@ -170,7 +170,7 @@
             this.btnEditProfilePicture.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnEditProfilePicture.onHoverState.BorderThickness = 1;
             this.btnEditProfilePicture.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnEditProfilePicture.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnEditProfilePicture.onHoverState.ForeColor = System.Drawing.Color.Black;
             this.btnEditProfilePicture.onHoverState.IconLeftImage = null;
             this.btnEditProfilePicture.onHoverState.IconRightImage = null;
             this.btnEditProfilePicture.OnIdleState.BorderColor = System.Drawing.Color.White;
@@ -186,10 +186,10 @@
             this.btnEditProfilePicture.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnEditProfilePicture.OnPressedState.BorderThickness = 1;
             this.btnEditProfilePicture.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnEditProfilePicture.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnEditProfilePicture.OnPressedState.ForeColor = System.Drawing.Color.Black;
             this.btnEditProfilePicture.OnPressedState.IconLeftImage = null;
             this.btnEditProfilePicture.OnPressedState.IconRightImage = null;
-            this.btnEditProfilePicture.Size = new System.Drawing.Size(164, 36);
+            this.btnEditProfilePicture.Size = new System.Drawing.Size(154, 36);
             this.btnEditProfilePicture.TabIndex = 7;
             this.btnEditProfilePicture.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnEditProfilePicture.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -280,7 +280,7 @@
             this.btnLogOut.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.OnPressedState.IconLeftImage = null;
             this.btnLogOut.OnPressedState.IconRightImage = null;
-            this.btnLogOut.Size = new System.Drawing.Size(124, 36);
+            this.btnLogOut.Size = new System.Drawing.Size(154, 36);
             this.btnLogOut.TabIndex = 0;
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnLogOut.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -351,7 +351,7 @@
             this.btnChangePassword.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnChangePassword.onHoverState.BorderThickness = 1;
             this.btnChangePassword.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnChangePassword.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnChangePassword.onHoverState.ForeColor = System.Drawing.Color.Black;
             this.btnChangePassword.onHoverState.IconLeftImage = null;
             this.btnChangePassword.onHoverState.IconRightImage = null;
             this.btnChangePassword.OnIdleState.BorderColor = System.Drawing.Color.White;
@@ -367,7 +367,7 @@
             this.btnChangePassword.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnChangePassword.OnPressedState.BorderThickness = 1;
             this.btnChangePassword.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnChangePassword.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnChangePassword.OnPressedState.ForeColor = System.Drawing.Color.Black;
             this.btnChangePassword.OnPressedState.IconLeftImage = null;
             this.btnChangePassword.OnPressedState.IconRightImage = null;
             this.btnChangePassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -442,7 +442,7 @@
             this.btnChangeUsername.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnChangeUsername.onHoverState.BorderThickness = 1;
             this.btnChangeUsername.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnChangeUsername.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnChangeUsername.onHoverState.ForeColor = System.Drawing.Color.Black;
             this.btnChangeUsername.onHoverState.IconLeftImage = null;
             this.btnChangeUsername.onHoverState.IconRightImage = null;
             this.btnChangeUsername.OnIdleState.BorderColor = System.Drawing.Color.White;
@@ -458,7 +458,7 @@
             this.btnChangeUsername.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnChangeUsername.OnPressedState.BorderThickness = 1;
             this.btnChangeUsername.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnChangeUsername.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnChangeUsername.OnPressedState.ForeColor = System.Drawing.Color.Black;
             this.btnChangeUsername.OnPressedState.IconLeftImage = null;
             this.btnChangeUsername.OnPressedState.IconRightImage = null;
             this.btnChangeUsername.Size = new System.Drawing.Size(154, 36);
@@ -532,7 +532,7 @@
             this.btnManagementCenter.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnManagementCenter.onHoverState.BorderThickness = 1;
             this.btnManagementCenter.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnManagementCenter.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnManagementCenter.onHoverState.ForeColor = System.Drawing.Color.Black;
             this.btnManagementCenter.onHoverState.IconLeftImage = null;
             this.btnManagementCenter.onHoverState.IconRightImage = null;
             this.btnManagementCenter.OnIdleState.BorderColor = System.Drawing.Color.White;
@@ -548,7 +548,7 @@
             this.btnManagementCenter.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnManagementCenter.OnPressedState.BorderThickness = 1;
             this.btnManagementCenter.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnManagementCenter.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnManagementCenter.OnPressedState.ForeColor = System.Drawing.Color.Black;
             this.btnManagementCenter.OnPressedState.IconLeftImage = null;
             this.btnManagementCenter.OnPressedState.IconRightImage = null;
             this.btnManagementCenter.Size = new System.Drawing.Size(154, 36);

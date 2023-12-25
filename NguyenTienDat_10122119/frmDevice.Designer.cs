@@ -58,6 +58,7 @@
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(412, 413);
             this.bunifuPanel2.TabIndex = 0;
+            this.bunifuPanel2.Click += new System.EventHandler(this.bunifuPanel2_Click);
             // 
             // bunifuPanel1
             // 
@@ -76,7 +77,7 @@
             this.bunifuPanel1.Location = new System.Drawing.Point(0, 0);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(175, 413);
+            this.bunifuPanel1.Size = new System.Drawing.Size(200, 413);
             this.bunifuPanel1.TabIndex = 0;
             // 
             // bunifuPanel3

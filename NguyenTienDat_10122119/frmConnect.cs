@@ -16,6 +16,10 @@ using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using Newtonsoft.Json;
+using System.Net.NetworkInformation;
+using System.Globalization;
+using System.Security.Policy;
+using AxMSTSCLib;
 
 namespace NguyenTienDat_10122119
 {
@@ -170,20 +174,13 @@ namespace NguyenTienDat_10122119
 
             if (minutesTextOfRecipient == true)
             {
-                // Lấy ngày hiện tại
                 string currentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                // Tạo đối tượng CodeHistoryData
                 CodeHistoryData codeHistory = new CodeHistoryData
                 {
                     Code = lblSecurityCode.Text,
                     DateSaved = currentDate
                 };
-
-                // Chuyển đối tượng CodeHistoryData thành chuỗi JSON
                 string codeHistoryJson = JsonConvert.SerializeObject(codeHistory);
-
-                // Lưu chuỗi JSON vào tệp code_history.json
                 string codeHistoryFilePath = "code_history.json";
                 File.AppendAllText(codeHistoryFilePath, codeHistoryJson + Environment.NewLine);
             }
@@ -577,38 +574,71 @@ namespace NguyenTienDat_10122119
         ///<End Setting SERVER>
 
         ////////////////////////////////////////////////// CLIENT //////////////////////////////////////////////////////////////
+        private bool IsConnectedToInternet()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (var stream = client.OpenRead("http://www.google.com"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
             Active_Menu(true);
 
             Active_SettingMain(true);
-
-            if (connectStatus == 1)
+            bool netWorkStatus = IsConnectedToInternet();
+            if (netWorkStatus == false)
             {
-                viewScreenForm.Close();
-                txtIPRemote.Focus();
+                MessageBox.Show("Please check your internet connection!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            else
+            {
+                if (connectStatus == 1)
+                {
+                    viewScreenForm.Close();
+                    txtIPRemote.Focus();
+                    return;
+                }
 
-            connectToRemoteThread = new Thread(ConnectToRemote);
-            connectToRemoteThread.IsBackground = true;
-            connectToRemoteThread.Start();
+                connectToRemoteThread = new Thread(ConnectToRemote);
+                connectToRemoteThread.IsBackground = true;
+                connectToRemoteThread.Start();
+            }
+        }
+        clsDatabase clsDatabase = new clsDatabase();
+        public string readEmail()
+        {
+            string jsonFilePath = "AllFormsState.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+
+            bool accepted = jsonData.frmLogin.LockInterface;
+            string email = jsonData.frmLogin.MinutesText;
+            if (accepted == true && email != "")
+            {
+                return email;
+            }
+            else
+            {
+                return "";
+            }
         }
         private void LogConnectionInfo(string ipAddress, DateTime connectTime)
         {
-            string filePath = "connection_log.txt"; 
-
-            try
+            string email = readEmail();
+            if(email!="")
             {
-                using (StreamWriter writer = File.AppendText(filePath))
-                {
-                    writer.WriteLine($"{ipAddress},{connectTime}");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error writing to log file: {ex.Message}");
+                clsDatabase.InsertIDs(ipAddress, connectTime,email);
             }
         }
 

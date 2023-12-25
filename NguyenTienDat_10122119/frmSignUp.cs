@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 //using WindowsFormsControlLibrary1;
 
 namespace NguyenTienDat_10122119
@@ -193,6 +194,140 @@ namespace NguyenTienDat_10122119
         private void bunifuPanel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void picVeryWeak_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picWeak_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picMedium_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picStrong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picVeryStrong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStrength_Click(object sender, EventArgs e)
+        {
+
+        }
+        public static PasswordScore CheckStrength(string password)
+        {
+            int score = 0;
+
+            if (password.Length < 1)
+                return PasswordScore.Blank;
+            if (password.Length < 4)
+                return PasswordScore.VeryWeak;
+
+            if (password.Length >= 8)
+                score++;
+            if (password.Length >= 12)
+                score++;
+            if (Regex.IsMatch(password, @"\d"))
+                score++;
+            if (Regex.IsMatch(password, @"[a-z]") && Regex.IsMatch(password, @"[A-Z]"))
+                score++;
+            if (Regex.IsMatch(password, @"[!@#$%^&*?_~\-£()]"))
+                score++;
+
+            return (PasswordScore)score;
+
+        }
+
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            String password = txtPassword.Text; // Substitute with the user input string
+            PasswordScore passwordStrengthScore = CheckStrength(password);
+
+            switch (passwordStrengthScore)
+            {
+                case PasswordScore.Blank:
+                    {
+                        picMedium.Visible = false;
+                        picStrong.Visible = false;
+                        picVeryStrong.Visible = false;
+                        picVeryWeak.Visible = false;
+                        picWeak.Visible = false;
+                        lblStrength.Text = "Blank";
+                    }
+                    break;
+                case PasswordScore.VeryWeak:
+                    {
+                        picMedium.Visible = false;
+                        picStrong.Visible = false;
+                        picVeryStrong.Visible = false;
+                        picVeryWeak.Visible = true;
+                        picWeak.Visible = false;
+                        lblStrength.Text = "Very Weak";
+                    }
+                    break;
+                case PasswordScore.Weak:
+                    {
+                        picMedium.Visible = false;
+                        picStrong.Visible = false;
+                        picVeryStrong.Visible = false;
+                        picVeryWeak.Visible = true;
+                        picWeak.Visible = true;
+                        lblStrength.Text = "Weak";
+                    }
+                    break;
+                case PasswordScore.Medium:
+                    {
+                        picMedium.Visible = true;
+                        picStrong.Visible = false;
+                        picVeryStrong.Visible = false;
+                        picVeryWeak.Visible = true;
+                        picWeak.Visible = true;
+                        lblStrength.Text = "Medium";
+                    }
+                    break;
+                case PasswordScore.Strong:
+                    {
+                        picMedium.Visible = true;
+                        picStrong.Visible = true;
+                        picVeryStrong.Visible = false;
+                        picVeryWeak.Visible = true;
+                        picWeak.Visible = true;
+                        lblStrength.Text = "Strong";
+                    }
+                    break;
+                case PasswordScore.VeryStrong:
+                    {
+                        picMedium.Visible = true;
+                        picStrong.Visible = true;
+                        picVeryStrong.Visible = true;
+                        picVeryWeak.Visible = true;
+                        picWeak.Visible = true;
+                        lblStrength.Text = "Very Strong";
+                    }
+                    break;
+            }
+        }
+
+        private void txtPassword_Load(object sender, EventArgs e)
+        {
+            picMedium.Visible = false;
+            picStrong.Visible = false;
+            picVeryStrong.Visible = false;
+            picVeryWeak.Visible = false;
+            picWeak.Visible = false;
+            lblStrength.Text="";
         }
     }
 }

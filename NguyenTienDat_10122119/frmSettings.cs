@@ -49,7 +49,9 @@ namespace NguyenTienDat_10122119
                 ["frmRecipient"] = new FormState { LockInterface = true, LockedComputer = true, MinutesText = "1" },
                 ["frmController"] = new FormState { LockInterface = false, LockedComputer = true, MinutesText = "0" },
                 ["frmUnattended"] = new FormState { LockInterface = true, LockedComputer = false, MinutesText = "" },
-                ["frmBasic"] = new FormState { LockInterface = true, LockedComputer = true, MinutesText = result }
+                ["frmBasic"] = new FormState { LockInterface = true, LockedComputer = true, MinutesText = result },
+                ["frmLogin"]=new FormState { LockInterface = false, LockedComputer = false, MinutesText = ""},
+                ["frmSuccessfully"]=new FormState { LockInterface=false, LockedComputer=false, MinutesText=""}
             };
 
             string json = JsonConvert.SerializeObject(defaultFormStates, Formatting.Indented);

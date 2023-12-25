@@ -101,7 +101,7 @@ namespace NguyenTienDat_10122119
 
         private void btnManagementCenter_Click(object sender, EventArgs e)
         {
-            string facebookLink = "https://www.facebook.com";
+            string facebookLink = "https://github.com/datnguyen-tien204";
 
             try
             {

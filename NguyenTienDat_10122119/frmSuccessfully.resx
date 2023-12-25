@@ -173,22 +173,22 @@
   </data>
   <data name="btnEditProfilePicture.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAKQAAAAkCAYAAAAHBZGZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dwxDcAwEARB86cYGO4/kSVzyBYz1QHY+tbM
-        PC8EnBbX3ZAgSFIESYogSREkKYIkRZCkCJIUQZIiSFIESYogSREkKYIkRZCkCJIUQZIiSFIESYogSREk
-        KYIkRZCkCJIUQZIiSFIESYogSREkKYIkRZCkCJIUQZIiSFLOpfO+G341M/sDNZLoqoFVIFUAAAAASUVO
-        RK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAAJoAAAAkCAYAAABxPyMSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACGSURBVHhe7dwxDcAwEATB8KcYGO4/kSVT8FYz1QHY+p6Z
+        eT+4aDf2nA1XCY2E0EgIjYTQSAiNhNBICI2E0EgIjYTQSAiNhNBICI2E0EgIjYTQSAiNhNBICI2E0EgI
+        jYTQSAiNhNBICI2E0EgIjYTQSAiNhNBICI2E0EgIjcS+Fl1nwxUzs3650k3/xZ8qiAAAAABJRU5ErkJg
+        gg==
 </value>
   </data>
   <data name="btnLogOut.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHwAAAAkCAYAAABLw14kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEPSURBVHhe7dwxrkFBGIbhUyotQam0EvVdgsZaJNZwt6DV
-        WsKtFSIhIiRIyBy+/8yIuwXzvU/yx5jRvTmhGc1/bdv+aJaa/RNfLRpqVppJyfuh8345POWPoxZqetH8
-        aTkoubsne5WPUSs1XuulF7GnmnPeRq1SSjd1nvN0G1HrTQS/lvcwED/YYITgZghuhuBmCG6G4GYIbobg
-        ZghuhuBmCG6G4GYIbobgZghuhuBmCG6G4GYIbobgZghuhuBmCG6G4GbiIsKjrGEggsfNQhhQ61MEn6WU
-        eMoNqPUivsN7WmzzFmqlxke95DviWoy0sdPcu1NURV0PmnEX+0378S8Qvxpuk1ZCLR+apZbDXLlpXtW0
-        NCdid0IdAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAJoAAAAkCAYAAABxPyMSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAElSURBVHhe7dwxagJBGIbhLbf0CJYpcxLrHCGNZxE8Q65g
+        a7tHSJ0iCIqEDSQBZdZ8/85IUuvOV70P/DjOWL4sWjjNf8MwPGm2msMFuEG0o+k0zyWrPzqflcM+fxy4
+        j1r60rxqOS+ZjU+yLh8D01Jbb3ppI7Kl5jNvA9NKKf2orzVPM1Snxt4jtO/yHqgmfggA1REaLAgNFoQG
+        C0KDBaHBgtBgQWiwIDRYEBosCA0WhAYLQoMFocGC0GBBaLAgNFgQGiwIDRaEBgtCgwWhwYLQYEFosIg/
+        EJ/LGqgmQosbX4Bq1Fgfoa1SSjzVUI0a28R3tFaLXd4CpqW2PvSS70jT4lEbe81pPAUmoJ6OmsUY2ZX2
+        49bHFw23C+Euauis2Wr5kOtqml+kDQRG6w1qMQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnChangePassword.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

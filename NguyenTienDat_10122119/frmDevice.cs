@@ -90,58 +90,37 @@ namespace NguyenTienDat_10122119
 
             return string.Empty;
         }
+        clsDatabase clsDatabase = new clsDatabase();
         private void AddButtonsToPanel()
         {
-            string filePath = "connection_log.txt"; // Đường dẫn tới file văn bản chứa các ID
+            string email = readEmail();
 
-            // Kiểm tra xem file có tồn tại không
-            if (File.Exists(filePath))
+            List<Tuple<string, DateTime>> selectedRecords = clsDatabase.GetDistinctRecentIDs(5); // Lấy 5 ID gần đây nhất từ cơ sở dữ liệu SQL
+
+            if (selectedRecords.Count > 0)
             {
                 bunifuPanel3.SuspendLayout();
-                string[] lines = File.ReadAllLines(filePath);
-
-                Dictionary<string, DateTime> latestConnections = new Dictionary<string, DateTime>();
-
-                foreach (string line in lines)
-                {
-                    string[] parts = line.Split(',');
-                    if (parts.Length >= 2)
-                    {
-                        string id = parts[0];
-                        DateTime time;
-                        if (DateTime.TryParseExact(parts[1], "MM/dd/yyyy h:mm:ss tt", null, System.Globalization.DateTimeStyles.None, out time))
-                        {
-                            if (!latestConnections.ContainsKey(id) || time > latestConnections[id])
-                            {
-                                latestConnections[id] = time;
-                            }
-                        }
-                    }
-                }
-                var selectedRecords = latestConnections.OrderByDescending(x => x.Value).Take(5).ToList();
 
                 int buttonIndex = 0;
                 string jsonFilePath = "button_info.json";
-                string connectionLogFilePath = "connection_log.txt";
-                List<string> connectionLogLines = File.ReadAllLines(connectionLogFilePath).ToList();
                 foreach (var record in selectedRecords)
                 {
                     Active_SettingMain(true);
-                    Bunifu.UI.WinForms.BunifuButton.BunifuButton newButton = ID_ButtonCreate(record.Key,buttonIndex);
+                    Bunifu.UI.WinForms.BunifuButton.BunifuButton newButton = ID_ButtonCreate(record.Item1, buttonIndex); // record.Item1 là ID
                     newButton.Click += (sender, e) =>
                     {
                         string id = newButton.Name;
-                        string latestTime = GetLatestTimeForID(connectionLogLines, id);
+                        // Thực hiện các thao tác khi nhấp vào nút ở đây
                         ButtonInfo buttonInfo = new ButtonInfo
                         {
                             ID = id,
-                            Time = latestTime
+                            Time = record.Item2.ToString() // record.Item2 là thời gian kiểu DateTime
                         };
                         string json = JsonConvert.SerializeObject(buttonInfo);
                         File.WriteAllText(jsonFilePath, json);
                     };
 
-                    newButton.Click += (sender, e) => 
+                    newButton.Click += (sender, e) =>
                     {
                         Bunifu.UI.WinForms.BunifuImageButton propertiesButton = ButtonFactory.Properties();
                         propertiesButton.Click += PropertiesClick;
@@ -176,6 +155,23 @@ namespace NguyenTienDat_10122119
                 btnMore.Image = Properties.Resources.icons8_forward_32;
                 moreButtonClicked = false;
                 bunifuPanel3.Visible = false;
+            }
+        }
+        public string readEmail()
+        {
+            string jsonFilePath = "AllFormsState.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+
+            bool accepted = jsonData.frmLogin.LockInterface;
+            string email = jsonData.frmLogin.MinutesText;
+            if (accepted == true && email != "")
+            {
+                return email;
+            }
+            else
+            {
+                return "";
             }
         }
 
@@ -350,6 +346,11 @@ namespace NguyenTienDat_10122119
             newButton.TextPadding = new System.Windows.Forms.Padding(0);
             newButton.UseDefaultRadiusAndThickness = true;
             return newButton;
+        }
+
+        private void bunifuPanel2_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public class LogEntry

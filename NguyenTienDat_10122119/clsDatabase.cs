@@ -207,5 +207,73 @@ namespace NguyenTienDat_10122119
         }
 
 
+        public List<Tuple<string, DateTime>> GetDistinctRecentIDs(int count)
+        {
+            List<Tuple<string, DateTime>> distinctRecentIDs = new List<Tuple<string, DateTime>>();
+            string sqlCon = LoadConnectionString();
+            using (SqlConnection connection = new SqlConnection(sqlCon))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string sqlQuery = "SELECT ID, MAX(CONVERT(datetime, Time, 0)) AS LatestTime FROM Connection_Log GROUP BY ID ORDER BY LatestTime DESC";
+                    SqlCommand command = new SqlCommand(sqlQuery, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read() && distinctRecentIDs.Count < count)
+                    {
+                        string id = reader["ID"].ToString();
+                        DateTime time;
+                        if (DateTime.TryParse(reader["LatestTime"].ToString(), out time))
+                        {
+                            if (!distinctRecentIDs.Any(tuple => tuple.Item1 == id))
+                            {
+                                distinctRecentIDs.Add(new Tuple<string, DateTime>(id, time));
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
+            return distinctRecentIDs;
+        }
+        public void InsertIDs(string id, DateTime time, string email)
+        {
+            string sqlCon = LoadConnectionString();
+            using (SqlConnection connection = new SqlConnection(sqlCon))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string sqlQuery = "INSERT INTO Connection_Log (ID, Time) SELECT @ID, @Time WHERE Email = @Email";
+                    SqlCommand command = new SqlCommand(sqlQuery, connection);
+                    command.Parameters.AddWithValue("@ID", id);
+                    command.Parameters.AddWithValue("@Time", time);
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine("Data inserted successfully.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data inserted.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
     }
 }

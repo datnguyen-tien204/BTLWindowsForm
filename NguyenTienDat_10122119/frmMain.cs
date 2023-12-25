@@ -213,31 +213,26 @@ namespace NguyenTienDat_10122119
 
         private void btnDevice_Click(object sender, EventArgs e)
         {
+
+            
+            
+
             btnConnect.Enabled = true;
             btnDevice.BackColor=Color.DarkBlue;
-            if (File.Exists(filePath))
+            string jsonFilePath = "AllFormsState.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+
+            bool accepted = jsonData.frmLogin.LockInterface;
+            if (accepted == true)
             {
-                string[] lines = File.ReadAllLines(filePath);
-
-                if (lines.Length >= 3)
-                {
-                    load_form(new frmDevice());
-
-                }
-                else
-                {
-                    load_form(new frmDeviceDisable());
-                }
+                load_form(new frmDevice());
             }
             else
             {
                 load_form(new frmDeviceDisable());
-            }
-            
+            }         
         }
-
-
-        private const string filePath = "AutoLogin.txt";    
         private void btnProfile_Click(object sender, EventArgs e)
         {
             btnConnect.Enabled = true;
