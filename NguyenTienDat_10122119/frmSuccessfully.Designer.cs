@@ -317,7 +317,6 @@
             this.btnChangePassword.DisabledBorderColor = System.Drawing.Color.White;
             this.btnChangePassword.DisabledFillColor = System.Drawing.Color.White;
             this.btnChangePassword.DisabledForecolor = System.Drawing.Color.Black;
-            this.btnChangePassword.Enabled = false;
             this.btnChangePassword.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.btnChangePassword.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.Black;
@@ -379,6 +378,7 @@
             this.btnChangePassword.TextMarginLeft = 0;
             this.btnChangePassword.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnChangePassword.UseDefaultRadiusAndThickness = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // btnChangeUsername
             // 

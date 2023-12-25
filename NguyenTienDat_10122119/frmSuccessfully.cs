@@ -48,6 +48,8 @@ namespace NguyenTienDat_10122119
 
             bool accepted = jsonData.frmLogin.LockInterface;
             string email = jsonData.frmLogin.MinutesText;
+
+            LoadFormState();
             if(accepted==true&&email!="")
             {
                 User[] usersInfo = clsDatabase.GetUserInfoFromDatabase(email);
@@ -108,7 +110,7 @@ namespace NguyenTienDat_10122119
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Không thể mở đường link Facebook. Lỗi: " + ex.Message);
+                MessageBox.Show("Can't open link. Error: " + ex.Message);
             }
         }
 
@@ -125,10 +127,14 @@ namespace NguyenTienDat_10122119
             {
                 OpenFileDialog dialog = new OpenFileDialog();
                 dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
-                if(dialog.ShowDialog()==System.Windows.Forms.DialogResult.OK)
+
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
-                    imgProfile.ImageLocation = imageLocation;
+                    string destinationPath = Path.Combine(Application.StartupPath, Path.GetFileName(imageLocation));
+                    File.Copy(imageLocation, destinationPath, true);
+                    imgProfile.ImageLocation = destinationPath;
+                    SaveFormState(destinationPath);
                 }
             }
             catch(Exception)
@@ -136,24 +142,74 @@ namespace NguyenTienDat_10122119
                 MessageBox.Show("An error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private string imageLocation = "";
 
         private void imgProfile_Click(object sender, EventArgs e)
         {
-            String imageLocation = "";
             try
             {
                 OpenFileDialog dialog = new OpenFileDialog();
                 dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
-                    imgProfile.ImageLocation = imageLocation;
+                    string destinationPath = Path.Combine(Application.StartupPath, Path.GetFileName(imageLocation));
+                    File.Copy(imageLocation, destinationPath, true);
+                    imgProfile.ImageLocation = destinationPath;
+                    SaveFormState(destinationPath);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frmChangePassword= new frmChangePassword();
+            frmChangePassword.ShowDialog();
+        }
+        private const string filePath2 = "AllFormsState.json";
+        private FormState currentState = new FormState();
+        /// <Save data moi khi thay doi>
+        private void SaveFormState(string path)
+        {
+            FormState currentState = new FormState
+            {
+                LockInterface = false,
+                LockedComputer = false,
+                MinutesText = path
+            };
+
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState2();
+            allFormsState[GetType().Name] = currentState;
+
+            string json = JsonConvert.SerializeObject(allFormsState, Formatting.Indented);
+            File.WriteAllText(filePath2, json);
+        }
+
+        private void LoadFormState()
+        {
+            Dictionary<string, FormState> allFormsState = LoadAllFormsState2();
+            string formName = GetType().Name;
+
+            if (allFormsState.ContainsKey(formName))
+            {
+                FormState currentState = allFormsState[formName];
+
+                imgProfile.ImageLocation = currentState.MinutesText;
+            }
+        }
+        private Dictionary<string, FormState> LoadAllFormsState2()
+        {
+            if (File.Exists(filePath2))
+            {
+                string json = File.ReadAllText(filePath2);
+                return JsonConvert.DeserializeObject<Dictionary<string, FormState>>(json);
+            }
+            return new Dictionary<string, FormState>();
         }
     }
     public class User

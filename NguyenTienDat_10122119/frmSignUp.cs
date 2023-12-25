@@ -158,6 +158,7 @@ namespace NguyenTienDat_10122119
         {
             frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
+            frmLogin.BringToFront();
             this.Close();
         }
 

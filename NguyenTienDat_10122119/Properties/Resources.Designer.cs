@@ -483,6 +483,16 @@ namespace NguyenTienDat_10122119.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_line_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-line-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_lock_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-lock-24", resourceCulture);
@@ -746,6 +756,46 @@ namespace NguyenTienDat_10122119.Properties {
         public static System.Drawing.Bitmap PaperPlane {
             get {
                 object obj = ResourceManager.GetObject("PaperPlane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pw_medium {
+            get {
+                object obj = ResourceManager.GetObject("pw_medium", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pw_strong {
+            get {
+                object obj = ResourceManager.GetObject("pw_strong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pw_verystrong {
+            get {
+                object obj = ResourceManager.GetObject("pw_verystrong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pw_weak {
+            get {
+                object obj = ResourceManager.GetObject("pw_weak", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
