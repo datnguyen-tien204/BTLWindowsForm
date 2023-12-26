@@ -20,6 +20,7 @@ using System.Net.NetworkInformation;
 using System.Globalization;
 using System.Security.Policy;
 using AxMSTSCLib;
+using System.Windows.Controls;
 
 namespace NguyenTienDat_10122119
 {
@@ -616,6 +617,27 @@ namespace NguyenTienDat_10122119
             }
         }
         clsDatabase clsDatabase = new clsDatabase();
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblMyID.Text);
+            lblCopiedSuccefully.Text = "Copied successfully";
+            timer.Interval = 3000; 
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            lblCopiedSuccefully.Text = ""; // Ẩn thông báo
+            timer.Stop(); // Dừng Timer
+        }
+
         public string readEmail()
         {
             string jsonFilePath = "AllFormsState.json";
