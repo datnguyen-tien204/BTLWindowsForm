@@ -626,16 +626,23 @@ namespace NguyenTienDat_10122119
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(lblMyID.Text);
-            lblCopiedSuccefully.Text = "Copied successfully";
-            timer.Interval = 3000; 
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            try
+            {
+                Clipboard.SetText(lblMyID.Text);
+                lblCopiedSuccefully.Text = "Copied successfully";
+                timer.Interval = 3000;
+                timer.Tick += Timer_Tick;
+                timer.Start();
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            lblCopiedSuccefully.Text = ""; // Ẩn thông báo
-            timer.Stop(); // Dừng Timer
+            lblCopiedSuccefully.Text = ""; 
+            timer.Stop();
         }
 
         public string readEmail()

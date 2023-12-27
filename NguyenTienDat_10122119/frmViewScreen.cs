@@ -59,7 +59,7 @@ namespace NguyenTienDat_10122119
             resolutionRemoteX = Int32.Parse(arr[1]);
             resolutionRemoteY = Int32.Parse(arr[2]);
 
-            this.FormBorderStyle = FormBorderStyle.None;
+            //this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 

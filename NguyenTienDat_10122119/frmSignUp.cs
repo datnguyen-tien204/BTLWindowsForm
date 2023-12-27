@@ -132,11 +132,8 @@ namespace NguyenTienDat_10122119
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(codeSent);
-            if (txtPassword.Text.Length < 8)
-            {
-                MessageBox.Show("Password must be at least 8 characters", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            String password = txtPassword.Text; // Substitute with the user input string
+            PasswordScore passwordStrengthScore = CheckStrength(password);
             if(txtSecureCode.Text!=codeSent)
             {
                 MessageBox.Show("Wrong secure code", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -147,11 +144,53 @@ namespace NguyenTienDat_10122119
             }
             else
             {
-                Console.WriteLine(txtEmail.Text);
-                Console.WriteLine(txtName);
-                Console.WriteLine(txtPassword);
-                clsDatabase.InsertData(txtName.Text.Trim(), txtEmail.Text.Trim(), txtPassword.Text.Trim());
-                this.Close();
+                switch (passwordStrengthScore)
+                {
+                    case PasswordScore.Blank:
+                        {
+                            MessageBox.Show("Password must be at least 8 characters", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        break;
+                    case PasswordScore.VeryWeak:
+                        {
+                            MessageBox.Show("Password is very weak.Choose a stronger password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        break;
+                    case PasswordScore.Weak:
+                        {
+                            MessageBox.Show("Password is weak.Choose a stronger password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        break;
+                    case PasswordScore.Medium:
+                        {
+                            Console.WriteLine(txtEmail.Text);
+                            Console.WriteLine(txtName);
+                            Console.WriteLine(txtPassword);
+                            clsDatabase.InsertData(txtName.Text.Trim(), txtEmail.Text.Trim(), txtPassword.Text.Trim());
+                            return;
+                            this.Close();
+                        }
+                        break;
+                    case PasswordScore.Strong:
+                        {
+                            Console.WriteLine(txtEmail.Text);
+                            Console.WriteLine(txtName);
+                            Console.WriteLine(txtPassword);
+                            clsDatabase.InsertData(txtName.Text.Trim(), txtEmail.Text.Trim(), txtPassword.Text.Trim());
+                            this.Close();
+                        }
+                        break;
+                    case PasswordScore.VeryStrong:
+                        {
+                            Console.WriteLine(txtEmail.Text);
+                            Console.WriteLine(txtName);
+                            Console.WriteLine(txtPassword);
+                            clsDatabase.InsertData(txtName.Text.Trim(), txtEmail.Text.Trim(), txtPassword.Text.Trim());
+                            this.Close();
+                        }
+                        break;
+                }
+               ;
             }
         }
 
@@ -191,40 +230,6 @@ namespace NguyenTienDat_10122119
         {
             isDragging = false;
         }
-        private void bunifuPanel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picVeryWeak_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picWeak_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picMedium_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picStrong_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picVeryStrong_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblStrength_Click(object sender, EventArgs e)
-        {
-
-        }
         public static PasswordScore CheckStrength(string password)
         {
             int score = 0;
@@ -252,7 +257,7 @@ namespace NguyenTienDat_10122119
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            String password = txtPassword.Text; // Substitute with the user input string
+            String password = txtPassword.Text; 
             PasswordScore passwordStrengthScore = CheckStrength(password);
 
             switch (passwordStrengthScore)

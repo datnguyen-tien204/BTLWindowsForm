@@ -716,7 +716,6 @@
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(429, 31);
             this.bunifuPanel1.TabIndex = 1;
-            this.bunifuPanel1.Click += new System.EventHandler(this.bunifuPanel1_Click);
             this.bunifuPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseDown);
             this.bunifuPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseMove);
             this.bunifuPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseUp);
@@ -797,7 +796,6 @@
             this.lblStrength.Text = "strength";
             this.lblStrength.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblStrength.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.lblStrength.Click += new System.EventHandler(this.lblStrength_Click);
             // 
             // picVeryStrong
             // 
@@ -808,7 +806,6 @@
             this.picVeryStrong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picVeryStrong.TabIndex = 22;
             this.picVeryStrong.TabStop = false;
-            this.picVeryStrong.Click += new System.EventHandler(this.picVeryStrong_Click);
             // 
             // picStrong
             // 
@@ -819,7 +816,6 @@
             this.picStrong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picStrong.TabIndex = 23;
             this.picStrong.TabStop = false;
-            this.picStrong.Click += new System.EventHandler(this.picStrong_Click);
             // 
             // picMedium
             // 
@@ -830,7 +826,6 @@
             this.picMedium.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMedium.TabIndex = 24;
             this.picMedium.TabStop = false;
-            this.picMedium.Click += new System.EventHandler(this.picMedium_Click);
             // 
             // picWeak
             // 
@@ -841,7 +836,6 @@
             this.picWeak.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picWeak.TabIndex = 21;
             this.picWeak.TabStop = false;
-            this.picWeak.Click += new System.EventHandler(this.picWeak_Click);
             // 
             // picVeryWeak
             // 
@@ -852,7 +846,6 @@
             this.picVeryWeak.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picVeryWeak.TabIndex = 20;
             this.picVeryWeak.TabStop = false;
-            this.picVeryWeak.Click += new System.EventHandler(this.picVeryWeak_Click);
             // 
             // frmSignUp
             // 

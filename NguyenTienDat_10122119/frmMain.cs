@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using Microsoft.Win32;
+using Bunifu.UI.WinForms;
 
 namespace NguyenTienDat_10122119
 {
@@ -28,6 +29,7 @@ namespace NguyenTienDat_10122119
 
         /// <Form Radius>
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -38,6 +40,7 @@ namespace NguyenTienDat_10122119
             int nHeightEllipse // width of ellipse
         );
         /// </End>
+        private bool moreButtonClicked = false;
         public frmMain()
         {
             InitializeComponent();
@@ -112,6 +115,7 @@ namespace NguyenTienDat_10122119
             settingsForm.Dock = DockStyle.Fill;
             pnlMain.Controls.Add(settingsForm);
             settingsForm.Show();
+            moreButtonClicked = false;
         }
 
        
@@ -392,5 +396,6 @@ namespace NguyenTienDat_10122119
         {
             RestoreSleep();
         }
+
     }
 }
